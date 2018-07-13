@@ -39,24 +39,35 @@ const TrackRuntime = styled.span`
   margin-right: 5rem;
 `;
 
+const TrackList = styled.div`
+  margin-top: 1rem;
+`;
+
 const TrackPopularity = styled.span``;
 
 const trackList = props => {
-  console.log(props);
-  let trackList = props.allTracks.splice(15).map((track, index) => {
-    return (
-      <Track>
-        <TrackImage src={track.album.images[0].url} />
-        <TrackNumber>{index}</TrackNumber>
-        <TrackName>{track.name}</TrackName>
-        <TrackAlbum>Album Name</TrackAlbum>
-        <TrackRuntime>3:29</TrackRuntime>
-        <TrackPopularity>9</TrackPopularity>
-      </Track>
-    );
-  });
+  let tracklist;
 
-  return trackList;
+  if (props.tracks.tracks) {
+    tracklist = props.tracks.tracks.splice(15).map((track, index) => {
+      return (
+        <TrackList>
+          <Track>
+            <TrackImage src={track.album.images[0].url} />
+            <TrackNumber>{index}</TrackNumber>
+            <TrackName>{track.name}</TrackName>
+            <TrackAlbum>Album Name</TrackAlbum>
+            <TrackRuntime>3:29</TrackRuntime>
+            <TrackPopularity>9</TrackPopularity>
+          </Track>
+        </TrackList>
+      );
+    });
+  } else {
+    tracklist = <div>There are no tracks available right now.</div>;
+  }
+
+  return tracklist;
 };
 
 export default trackList;

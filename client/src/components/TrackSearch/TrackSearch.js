@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import searchIcon from '../../assets/search.svg';
 
 const TrackSaarch = styled.div`
   input {
@@ -11,7 +12,7 @@ const TrackSaarch = styled.div`
     padding: 1rem;
     outline: none;
     margin-top: 4rem;
-    background-image: url('../../assets/search.svg');
+    background-image: url(${searchIcon});
     background-repeat: no-repeat;
     background-position: right;
     background-size: 2rem;

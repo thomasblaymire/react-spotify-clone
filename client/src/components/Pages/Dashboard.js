@@ -4,14 +4,23 @@ import TrackContainer from './../../containers/TrackContainer';
 import Sidebar from './../Sidebar/Sidebar';
 import AuthContainer from './../../containers/AuthContainer';
 import TrackList from './../TrackList/TrackList';
+import { connect } from 'react-redux';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: 'Don diablo'
+      allTracks: [],
+      artistName: ''
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      allTracks: nextProps.tracks
+    });
+  }
+
   render() {
     return (
       <div>
@@ -19,7 +28,7 @@ class Dashboard extends Component {
           <TrackContainer />
         </Sidebar>
 
-        <Header artistName={this.state.searchTerm}>
+        <Header artistName={this.state.artistName}>
           <AuthContainer />
         </Header>
 
@@ -27,7 +36,7 @@ class Dashboard extends Component {
           <section className="main__section">
             <h3 className="main__title">Top Tracks</h3>
             <div className="track__list">
-              <TrackList allTracks={this.state.allTracks} />
+              <TrackList tracks={this.state.allTracks} />
             </div>
           </section>
 
@@ -40,4 +49,10 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = state => {
+  return {
+    tracks: state.tracks
+  };
+};
+
+export default connect(mapStateToProps)(Dashboard);

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import TrackSearch from '../components/TrackSearch/TrackSearch';
-import SpotifyWebApi from 'spotify-web-api-js';
-
-const spotifyApi = new SpotifyWebApi();
+import { connect } from 'react-redux';
+import * as actions from '../store/actions/index';
 
 class TrackContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allTracks: [],
-      searchTerm: 'Please search for an artist...'
+      allTracks: []
     };
 
     this.searchTrack = this.searchTrack.bind(this);
@@ -19,11 +17,7 @@ class TrackContainer extends Component {
     this.setState({ searchTerm: e.target.value });
     let term = this.state.searchTerm;
 
-    spotifyApi.searchTracks(term, (err, data) => {
-      if (data) {
-        this.setState({ allTracks: data.tracks.items });
-      }
-    });
+    this.props.getTrackData(term);
   }
 
   render() {
@@ -36,4 +30,19 @@ class TrackContainer extends Component {
   }
 }
 
-export default TrackContainer;
+const mapStateToProps = state => {
+  return {
+    tracks: state.tracks
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getTrackData: term => dispatch(actions.loadTracksData(term))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TrackContainer);

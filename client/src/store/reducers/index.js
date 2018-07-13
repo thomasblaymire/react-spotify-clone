@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import searchReducer from './searchReducer';
+import tracksReducer from './tracksReducer';
 
 export default combineReducers({
-  search: searchReducer
+  tracks: tracksReducer
 });
