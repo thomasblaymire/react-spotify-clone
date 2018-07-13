@@ -31,16 +31,16 @@ const LoginButtonIcon = styled.img`
 `;
 
 const loginButton = props => {
-  const requestAccess = () => {
-    axios
-      .get('http://localhost:8888/login')
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error + 'Error');
-      });
-  };
+  // requestAccess = () => {
+  //   axios
+  //     .get('http://localhost:8888/login')
+  //     .then(response => {
+  //       console.log(response);
+  //     })
+  //     .catch(error => {
+  //       console.log(error + 'Error');
+  //     });
+  // };
 
   let loginButton;
 
@@ -50,14 +50,12 @@ const loginButton = props => {
   } else {
     console.log('login button');
     loginButton = (
-      <LoginButton onClick={requestAccess}>
+      <LoginButton href="http://localhost:8888/login">
         Login to Spotify
         <LoginButtonIcon src={profileIcon} />
       </LoginButton>
     );
   }
-
-  //href="http://localhost:8888/login"
 
   return loginButton;
 };
