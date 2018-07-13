@@ -26,5 +26,12 @@ export const loadTracksData = term => {
         dispatch(loadTracksSuccess(data.tracks.items));
       }
     });
+
+    // spotifyApi.getMyTopTracks((err, data) => {
+    //   if (data) {
+    //     console.log(data);
+    //     dispatch(loadTracksSuccess(data));
+    //   }
+    // });
   };
 };

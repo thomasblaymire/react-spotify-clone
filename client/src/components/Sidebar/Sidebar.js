@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import media from '../../helpers/media';
 import appHeader from '../../assets/spotify.png';
 
+import musicIcon from '../../assets/music.svg';
+import radioIcon from '../../assets/radio.svg';
+import micoIcon from '../../assets/casette.svg';
+import headphonesIcon from '../../assets/headphones.svg';
+import speakerIcon from '../../assets/volume.svg';
+
 const Sidebar = styled.div`
   height: 100%;
   width: 300px;
@@ -27,10 +33,13 @@ const SidebarMenu = styled.ul`
 `;
 
 const SidebarMenuItem = styled.li`
-  margin-bottom: 3rem;
+  height: 6rem;
   font-size: 1.4rem;
   font-weight: bold;
   color: #acacac;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 `;
 
 const SidebarLogo = styled.img`
@@ -41,6 +50,11 @@ const SidebarLogo = styled.img`
 
 const SidebarTitle = styled.h3``;
 
+const SidebarMenuItemIcon = styled.img`
+  width: 28px;
+  margin-right: 2rem;
+`;
+
 const sidebar = props => {
   return (
     <Sidebar>
@@ -49,11 +63,22 @@ const sidebar = props => {
       <SidebarSection>
         <SidebarTitle>Browse Music</SidebarTitle>
         <SidebarMenu>
-          <SidebarMenuItem>Discover</SidebarMenuItem>
-          <SidebarMenuItem>Around Me</SidebarMenuItem>
-          <SidebarMenuItem>Turn The Tables</SidebarMenuItem>
-          <SidebarMenuItem>CO Play</SidebarMenuItem>
-          <SidebarMenuItem>Daily Digest</SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuItemIcon src={musicIcon} />
+            Discover
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuItemIcon src={radioIcon} />Around Me
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuItemIcon src={micoIcon} />Turn The Tables
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuItemIcon src={headphonesIcon} />CO Play
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuItemIcon src={speakerIcon} />Daily Digest
+          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarSection>
     </Sidebar>
