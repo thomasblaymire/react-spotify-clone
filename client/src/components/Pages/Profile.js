@@ -7,15 +7,7 @@ import AuthContainer from './../../containers/AuthContainer';
 import TrackList from './../TrackList/TrackList';
 import { connect } from 'react-redux';
 
-class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allTracks: [],
-      artistName: ''
-    };
-  }
-
+class Profile extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       allTracks: nextProps.tracks
@@ -29,7 +21,7 @@ class Dashboard extends Component {
           <TrackSearchContainer />
         </Sidebar>
 
-        <Header artistName={this.state.artistName}>
+        <Header>
           <AuthContainer />
         </Header>
 
@@ -40,10 +32,6 @@ class Dashboard extends Component {
               {/* <TrackList tracks={this.state.allTracks} /> */}
               <TopTracksContainer />
             </div>
-          </section>
-
-          <section className="main__section">
-            <h3 className="main__title">Albums</h3>
           </section>
         </main>
       </div>
@@ -57,4 +45,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Profile);

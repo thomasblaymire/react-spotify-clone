@@ -46,10 +46,11 @@ const TrackList = styled.div`
 const TrackPopularity = styled.span``;
 
 const trackList = props => {
+  console.log(props);
   let tracklist;
 
-  if (props.tracks.tracks) {
-    tracklist = props.tracks.tracks.splice(15).map((track, index) => {
+  if (props.tracks) {
+    tracklist = props.tracks.splice(15).map((track, index) => {
       return (
         <TrackList>
           <Track>

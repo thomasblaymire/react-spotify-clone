@@ -1,6 +1,7 @@
 import React from 'react';
 import profileIcon from '../../../assets/login.svg';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const LoginButton = styled.a`
   background-image: url('./assets/login.svg');
@@ -30,6 +31,17 @@ const LoginButtonIcon = styled.img`
 `;
 
 const loginButton = props => {
+  const requestAccess = () => {
+    axios
+      .get('http://localhost:8888/login')
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error + 'Error');
+      });
+  };
+
   let loginButton;
 
   if (props.loggedIn) {
@@ -38,12 +50,14 @@ const loginButton = props => {
   } else {
     console.log('login button');
     loginButton = (
-      <LoginButton href="http://localhost:8888/login">
+      <LoginButton onClick={requestAccess}>
         Login to Spotify
         <LoginButtonIcon src={profileIcon} />
       </LoginButton>
     );
   }
+
+  //href="http://localhost:8888/login"
 
   return loginButton;
 };

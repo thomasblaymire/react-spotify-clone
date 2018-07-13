@@ -76,7 +76,8 @@ const header = props => {
   console.log(props);
   return (
     <Header>
-      <HeaderTitle>{props.artistName}</HeaderTitle>
+      {/* <HeaderTitle>{props.artistName}</HeaderTitle> */}
+      <HeaderTitle>Don Diablo</HeaderTitle>
       <HeaderDescription>
         He and dream. One tickets a it seal parts found and big been I them.
         Catch go the of pitifully then at the such uniforms, the not millions

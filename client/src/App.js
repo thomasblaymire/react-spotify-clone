@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Dashboard from './components/Pages/Dashboard';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-
 import { injectGlobal } from 'styled-components';
+
+import DashboardPage from './components/Pages/Dashboard';
+import ProfilePage from './components/Pages/Profile';
 
 injectGlobal`
   *,
@@ -38,7 +39,8 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/" component={DashboardPage} />
+            <Route exact path="/profile" component={ProfilePage} />
           </div>
         </Router>
       </Provider>

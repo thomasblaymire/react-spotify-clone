@@ -1,1 +1,1 @@
-export { loadTracksData } from './tracks';
+export { loadTracksData, loadTopTracksData } from './tracks';

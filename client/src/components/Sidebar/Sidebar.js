@@ -65,10 +65,10 @@ const sidebar = props => {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuItemIcon src={musicIcon} />
-            Discover
+            Profile
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuItemIcon src={radioIcon} />Around Me
+            <SidebarMenuItemIcon src={radioIcon} />Discover
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuItemIcon src={micoIcon} />Turn The Tables

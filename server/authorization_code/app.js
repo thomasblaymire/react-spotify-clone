@@ -104,6 +104,7 @@ app.get('/callback', function(req, res) {
           console.log(body);
         });
 
+
         // we can also pass the token to the browser to make requests from there
         res.redirect('http://localhost:3000/#' +
           querystring.stringify({
@@ -116,6 +117,12 @@ app.get('/callback', function(req, res) {
             error: 'invalid_token'
           }));
       }
+
+      res.json({
+        access_token: access_token,
+        refresh_token: refresh_token
+      })
+
     });
   }
 });

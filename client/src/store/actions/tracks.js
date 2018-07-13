@@ -26,12 +26,31 @@ export const loadTracksData = term => {
         dispatch(loadTracksSuccess(data.tracks.items));
       }
     });
+  };
+};
 
-    // spotifyApi.getMyTopTracks((err, data) => {
-    //   if (data) {
-    //     console.log(data);
-    //     dispatch(loadTracksSuccess(data));
-    //   }
-    // });
+export const loadTopTracksSuccess = topTracks => {
+  console.log(topTracks);
+  return {
+    type: actionTypes.LOAD_TOP_TRACKS_DATA_SUCCESS,
+    topTracks: topTracks
+  };
+};
+
+export const loadTopTracksFailure = () => {
+  return {
+    type: actionTypes.LOAD_TOP_TRACKS_DATA_FAILURE
+  };
+};
+
+export const loadTopTracksData = () => {
+  console.log('Load Top Track Data Action HIT');
+  return dispatch => {
+    spotifyApi.getMyTopTracks((err, data) => {
+      if (data) {
+        console.log(data);
+        dispatch(loadTopTracksSuccess(data));
+      }
+    });
   };
 };
