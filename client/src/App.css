@@ -1,0 +1,15 @@
+.main {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.main__section {
+  padding-bottom: 5rem;
+}
+
+.main__title {
+  font-size: 2rem;
+  color: #676a6f;
+}
