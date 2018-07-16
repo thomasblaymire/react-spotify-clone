@@ -5,7 +5,7 @@ import headerHero from '../../assets/bg.jpg';
 import styled, { css } from 'styled-components';
 
 const Header = styled.div`
-  height: 40vh;
+  min-height: 40vh;
   background-color: #2a2a72;
   background-image: url(${headerHero});
   background-size: cover;
@@ -16,6 +16,7 @@ const Header = styled.div`
   font-family: 'Nunito', sans-serif;
   padding-left: 10rem;
   padding-right: 10rem;
+  padding-bottom: 2rem;
 `;
 
 const HeaderTitle = styled.h3`
