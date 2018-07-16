@@ -1,24 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Artist = styled.div`
-  width: 200px;
-  height: 200px;
+const ArtistList = styled.div`
   display: inline-flex;
+`;
+
+const Artist = styled.div`
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: #ffffff;
   border: solid 20px #ffffff;
   margin-right: 3rem;
+  border-radius: 5px;
 `;
 
 const ArtistName = styled.h3``;
 
-const ArtistList = styled.div`
-  margin-top: 1rem;
-`;
-
 const ArtistImage = styled.img`
-  width: 150px;
+  width: 180px;
+  border-radius: 5px;
 `;
 
 const artistList = props => {
