@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
+import TopArtistsContainer from './../../containers/TopArtistsContainer';
 import Sidebar from './../Sidebar/Sidebar';
 import AuthContainer from './../../containers/AuthContainer';
-import TrackList from './../TrackList/TrackList';
 import { connect } from 'react-redux';
 
 class Dashboard extends Component {
@@ -37,13 +37,13 @@ class Dashboard extends Component {
           <section className="main__section">
             <h3 className="main__title">Your Top Tracks</h3>
             <div className="track__list">
-              {/* <TrackList tracks={this.state.allTracks} /> */}
               <TopTracksContainer />
             </div>
           </section>
 
           <section className="main__section">
             <h3 className="main__title">Albums</h3>
+            <TopArtistsContainer />
           </section>
         </main>
       </div>
