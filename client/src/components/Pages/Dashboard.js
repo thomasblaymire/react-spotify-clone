@@ -24,6 +24,13 @@ class Dashboard extends Component {
   }
 
   render() {
+    let trackSearchResults;
+
+    if (this.props.trackResults === null) return null;
+    return (
+      <TrackList key={this.props.topTracks} tracks={this.props.topTracks} />
+    );
+
     return (
       <div>
         <Sidebar>
@@ -64,7 +71,7 @@ const mapStateToProps = state => {
   console.log(state.tracks.trackResults);
   return {
     tracks: state.tracks,
-    trackResults: state.trackResults
+    trackResults: state.tracks.trackResults
   };
 };
 
