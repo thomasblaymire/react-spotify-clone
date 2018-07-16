@@ -1,3 +1,5 @@
+// To call the value passed from Dash to API
+
 import React, { Component } from 'react';
 import TrackSearch from '../components/TrackSearch/TrackSearch';
 import { connect } from 'react-redux';

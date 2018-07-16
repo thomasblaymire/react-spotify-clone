@@ -11,10 +11,7 @@ class TopTracksContainer extends Component {
   render() {
     if (this.props.topTracks === null) return null;
     return (
-      <TrackList
-        key={this.props.topTracks.items}
-        tracks={this.props.topTracks.items}
-      />
+      <TrackList key={this.props.topTracks} tracks={this.props.topTracks} />
     );
   }
 }

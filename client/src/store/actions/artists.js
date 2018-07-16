@@ -11,9 +11,10 @@ export const loadTopArtistsSuccess = topArtists => {
   };
 };
 
-export const loadTopArtistsFailure = () => {
+export const loadTopArtistsFailure = error => {
   return {
-    type: actionTypes.LOAD_TOP_ARTISTS_DATA_FAILURE
+    type: actionTypes.LOAD_TOP_ARTISTS_DATA_FAILURE,
+    error
   };
 };
 
@@ -24,6 +25,9 @@ export const loadTopArtistsData = () => {
       if (data) {
         console.log(data);
         dispatch(loadTopArtistsSuccess(data));
+      } else {
+        console.warn('Error in loadTopArtistsData:', err);
+        dispatch(loadTopArtistsFailure(err));
       }
     });
   };

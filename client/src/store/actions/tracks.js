@@ -3,24 +3,30 @@ import SpotifyWebApi from 'spotify-web-api-js';
 
 const spotifyApi = new SpotifyWebApi();
 
-export const loadTracksSuccess = tracks => {
+export const loadTracksSuccess = tracksResults => {
   return {
     type: actionTypes.LOAD_TRACK_DATA_SUCCESS,
-    tracks: tracks
+    tracksResults
   };
 };
 
-export const loadTracksFailure = () => {
+export const loadTracksFailure = error => {
   return {
-    type: actionTypes.LOAD_TRACK_DATA_FAILURE
+    type: actionTypes.LOAD_TRACK_DATA_FAILURE,
+    error
   };
 };
 
 export const loadTracksData = term => {
+  console.log(term);
   return dispatch => {
     spotifyApi.searchTracks(term, (err, data) => {
       if (data) {
+        console.log(data);
         dispatch(loadTracksSuccess(data.tracks.items));
+      } else {
+        console.warn('Error in loadTopTracksData:', err);
+        dispatch(loadTracksFailure(err));
       }
     });
   };
@@ -33,9 +39,10 @@ export const loadTopTracksSuccess = topTracks => {
   };
 };
 
-export const loadTopTracksFailure = () => {
+export const loadTopTracksFailure = error => {
   return {
-    type: actionTypes.LOAD_TOP_TRACKS_DATA_FAILURE
+    type: actionTypes.LOAD_TOP_TRACKS_DATA_FAILURE,
+    error
   };
 };
 
@@ -44,6 +51,9 @@ export const loadTopTracksData = () => {
     spotifyApi.getMyTopTracks((err, data) => {
       if (data) {
         dispatch(loadTopTracksSuccess(data));
+      } else {
+        console.warn('Error in loadTopTracksData:', err);
+        dispatch(loadTopTracksFailure(err));
       }
     });
   };

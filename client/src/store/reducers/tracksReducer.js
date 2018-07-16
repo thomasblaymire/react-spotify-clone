@@ -1,14 +1,15 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  tracks: [],
+  tracksResults: [],
   topTracks: null,
   error: false
 };
 
 const loadTracksSuccess = (state, action) => {
   return {
-    tracks: action.tracks
+    ...state,
+    tracksResults: action.tracksResults
   };
 };
 
@@ -21,7 +22,8 @@ const loadTracksFailure = state => {
 
 const loadTopTracksSuccess = (state, action) => {
   return {
-    topTracks: action.topTracks
+    ...state,
+    topTracks: action.topTracks.items
   };
 };
 

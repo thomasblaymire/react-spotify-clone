@@ -6,6 +6,7 @@ import TopArtistsContainer from './../../containers/TopArtistsContainer';
 import Sidebar from './../Sidebar/Sidebar';
 import AuthContainer from './../../containers/AuthContainer';
 import { connect } from 'react-redux';
+import TrackList from './../TrackList/TrackList';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -35,6 +36,13 @@ class Dashboard extends Component {
 
         <main className="main">
           <section className="main__section">
+            <h3 className="main__title">Search Results</h3>
+            <div className="track__list">
+              <TrackList tracks={this.props.trackResults} />
+            </div>
+          </section>
+
+          <section className="main__section">
             <h3 className="main__title">Your Top Tracks</h3>
             <div className="track__list">
               <TopTracksContainer />
@@ -52,8 +60,11 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log('Dash');
+  console.log(state.tracks.trackResults);
   return {
-    tracks: state.tracks
+    tracks: state.tracks,
+    trackResults: state.trackResults
   };
 };
 
