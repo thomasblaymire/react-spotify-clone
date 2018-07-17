@@ -52,7 +52,7 @@ const trackList = props => {
     tracklist = props.tracks.splice(15).map((track, index) => {
       return (
         <TrackList key={index}>
-          <Track>
+          <Track onClick={props.toggleSong}>
             <TrackImage src={track.album.images[0].url} />
             <TrackNumber>{index}</TrackNumber>
             <TrackName>{track.name}</TrackName>

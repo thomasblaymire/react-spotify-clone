@@ -13,8 +13,7 @@ class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
-      trackResults: [],
-      openDrawer: true
+      trackResults: []
     };
     this.toggleDrawer = this.toggleDrawer.bind(this);
   }
@@ -23,10 +22,6 @@ class Dashboard extends Component {
     this.setState({
       trackResults: nextProps.tracks.tracksResults
     });
-  }
-
-  componentDidUpdate() {
-    console.log(this.state);
   }
 
   toggleDrawer() {
@@ -76,10 +71,9 @@ class Dashboard extends Component {
           <section className="main__section">
             <h3 className="main__title">Albums</h3>
             <TopArtistsContainer />
-            <button onClick={this.toggleDrawer}>Toogle </button>
           </section>
 
-          <Drawer active={this.state.openDrawer} />
+          <Drawer active={this.props.toggleDrawer} />
         </main>
       </div>
     );
@@ -87,9 +81,11 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     tracks: state.tracks,
-    trackResults: state.tracks.trackResults
+    trackResults: state.tracks.trackResults,
+    toggleDrawer: state.tracks.toggleDrawer
   };
 };
 

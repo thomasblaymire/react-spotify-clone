@@ -3,6 +3,12 @@ import SpotifyWebApi from 'spotify-web-api-js';
 
 const spotifyApi = new SpotifyWebApi();
 
+export const toggleDrawer = () => {
+  return {
+    type: actionTypes.TOGGLE_DRAWER
+  };
+};
+
 export const loadTracksSuccess = tracksResults => {
   return {
     type: actionTypes.LOAD_TRACK_DATA_SUCCESS,

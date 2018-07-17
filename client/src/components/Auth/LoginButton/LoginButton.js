@@ -4,10 +4,12 @@ import styled from 'styled-components';
 // import axios from 'axios';
 
 const LoginButton = styled.a`
-  background-image: url('./assets/login.svg');
+  margin: 0 auto;
+  text-align: center;
   background-size: cover;
-  background: green;
+  background: #1ed760;
   padding: 0.75rem 1.5rem;
+  margin-top: 3rem;
   border: none;
   font-size: 2rem;
   border-radius: 5px;
@@ -16,18 +18,12 @@ const LoginButton = styled.a`
   display: flex;
   align-items: center;
   transition: all 0.4s ease-in-out;
-  position: absolute;
-  left: 80%;
+  text-decoration: none;
 
   &:hover {
     opacity: 0.4;
     transition: all 0.4s ease-in-out;
   }
-`;
-
-const LoginButtonIcon = styled.img`
-  width: 35px;
-  margin-left: 1rem;
 `;
 
 const loginButton = props => {
@@ -50,7 +46,6 @@ const loginButton = props => {
     loginButton = (
       <LoginButton href="http://localhost:8888/login">
         Login to Spotify
-        <LoginButtonIcon src={profileIcon} />
       </LoginButton>
     );
   }

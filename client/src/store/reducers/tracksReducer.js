@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
   tracksResults: [],
   topTracks: null,
-  error: false
+  error: false,
+  toggleDrawer: false
 };
 
 const loadTracksSuccess = (state, action) => {
@@ -44,6 +45,11 @@ const reducer = (state = initialState, action) => {
       return loadTopTracksSuccess(state, action);
     case actionTypes.LOAD_TOP_TRACKS_DATA_FAILURE:
       return loadTopTracksFailure(state, action);
+    case actionTypes.TOGGLE_DRAWER:
+      return {
+        ...state,
+        toggleDrawer: true
+      };
     default:
       return state;
   }

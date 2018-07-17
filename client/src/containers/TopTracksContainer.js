@@ -10,7 +10,12 @@ class TopTracksContainer extends Component {
 
   render() {
     if (this.props.topTracks === null) return null;
-    return <TrackList tracks={this.props.topTracks} />;
+    return (
+      <TrackList
+        tracks={this.props.topTracks}
+        toggleSong={this.props.toggleSong}
+      />
+    );
   }
 }
 
@@ -22,7 +27,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getTopTracks: () => dispatch(actions.loadTopTracksData())
+    getTopTracks: () => dispatch(actions.loadTopTracksData()),
+    toggleSong: () => dispatch(actions.toggleDrawer())
   };
 };
 
