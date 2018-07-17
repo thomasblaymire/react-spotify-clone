@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   tracksResults: [],
+  recentTracks: [],
   topTracks: null,
   error: false,
   toggleDrawer: false
@@ -35,6 +36,20 @@ const loadTopTracksFailure = state => {
   };
 };
 
+const loadRecentTracksSuccess = (state, action) => {
+  return {
+    ...state,
+    recentTracks: action.recentTracks.items
+  };
+};
+
+const loadRecentTracksFailure = state => {
+  return {
+    ...state,
+    error: true
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOAD_TRACK_DATA_SUCCESS:
@@ -45,6 +60,10 @@ const reducer = (state = initialState, action) => {
       return loadTopTracksSuccess(state, action);
     case actionTypes.LOAD_TOP_TRACKS_DATA_FAILURE:
       return loadTopTracksFailure(state, action);
+    case actionTypes.LOAD_RECENT_TRACKS_DATA_SUCCESS:
+      return loadRecentTracksSuccess(state, action);
+    case actionTypes.LOAD_RECENT_TRACKS_DATA_FAILURE:
+      return loadRecentTracksFailure(state, action);
     case actionTypes.TOGGLE_DRAWER:
       return {
         ...state,

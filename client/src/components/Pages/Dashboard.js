@@ -4,16 +4,19 @@ import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
 import TopArtistsContainer from './../../containers/TopArtistsContainer';
 import Sidebar from './../Sidebar/Sidebar';
-import AuthContainer from './../../containers/AuthContainer';
 import { connect } from 'react-redux';
 import TrackList from './../TrackList/TrackList';
 import Drawer from './../Drawer/Darwer';
+import Auth from './../Auth/Auth';
 
 class Dashboard extends Component {
   constructor() {
     super();
     this.state = {
-      trackResults: []
+      trackResults: [],
+      title: 'Dashboard',
+      description:
+        'Browse, search and stream over 1 million songs all from one place.'
     };
     this.toggleDrawer = this.toggleDrawer.bind(this);
   }
@@ -54,8 +57,8 @@ class Dashboard extends Component {
           <TrackSearchContainer />
         </Sidebar>
 
-        <Header artistName={this.state.artistName}>
-          <AuthContainer />
+        <Header title={this.state.title} description={this.state.description}>
+          <Auth />
         </Header>
 
         <main className="main">

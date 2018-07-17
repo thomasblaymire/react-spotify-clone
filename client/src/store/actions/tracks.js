@@ -62,3 +62,31 @@ export const loadTopTracksData = () => {
     });
   };
 };
+
+export const loadRecentTracksSuccess = recentTracks => {
+  return {
+    type: actionTypes.LOAD_RECENT_TRACKS_DATA_SUCCESS,
+    recentTracks: recentTracks
+  };
+};
+
+export const loadRecentTracksFailure = error => {
+  return {
+    type: actionTypes.LOAD_RECENT_TRACKS_DATA_FAILURE,
+    error
+  };
+};
+
+export const loadRecentTracksData = () => {
+  return dispatch => {
+    spotifyApi.getMyRecentlyPlayedTracks((err, data) => {
+      if (data) {
+        console.log(data);
+        dispatch(loadTopTracksSuccess(data));
+      } else {
+        console.warn('Error in loadRecentTrackData:', err);
+        dispatch(loadRecentTracksFailure(err));
+      }
+    });
+  };
+};

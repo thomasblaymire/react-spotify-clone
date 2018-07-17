@@ -17,7 +17,6 @@ var client_id = '0acce1d418fe47edb16157265043367d'; // Your client id
 var client_secret = '5162d461beb44a8b8fd04bcd93bd7a36'; // Your secret
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
-
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -103,7 +102,6 @@ app.get('/callback', function(req, res) {
         request.get(options, function(error, response, body) {
           console.log(body);
         });
-
 
         // we can also pass the token to the browser to make requests from there
         res.redirect('http://localhost:3000/#' +

@@ -7,10 +7,15 @@ const Drawer = styled.div`
   bottom: 0px;
   width: 100%;
   background: #363636;
+  padding-left: 300px;
   height: 0;
   transition-property: all;
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ${({ active }) =>
     active &&
@@ -23,9 +28,17 @@ const Drawer = styled.div`
   `};
 `;
 
+const TrackName = styled.div`
+  color: #ffffff;
+  font-size: 1.8rem;
+`;
+
 const drawer = props => {
-  console.log(props);
-  return <Drawer active={props.active} />;
+  return (
+    <Drawer active={props.active}>
+      <TrackName>The Ocean (feat. Shy Martin)</TrackName>
+    </Drawer>
+  );
 };
 
 export default drawer;

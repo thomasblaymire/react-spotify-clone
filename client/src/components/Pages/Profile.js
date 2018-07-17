@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
+import ProfilePageBG from '../../assets/';
 import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
+import RecentTracksContainer from './../../containers/RecentTracksContainer';
 import Sidebar from './../Sidebar/Sidebar';
-import AuthContainer from './../../containers/AuthContainer';
-import TrackList from './../TrackList/TrackList';
-import { connect } from 'react-redux';
 
 class Profile extends Component {
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      allTracks: nextProps.tracks
-    });
+  constructor() {
+    super();
+    this.state = {
+      title: 'Profile',
+      description: 'See your most played artists, albums and songs.'
+    };
   }
+
+  componentWillReceiveProps(nextProps) {}
 
   render() {
     return (
@@ -21,15 +24,17 @@ class Profile extends Component {
           <TrackSearchContainer />
         </Sidebar>
 
-        <Header>
-          <AuthContainer />
-        </Header>
+        <Header
+          title={this.state.title}
+          description={this.state.description}
+          image={ProfilePageBG}
+        />
 
         <main className="main">
           <section className="main__section">
             <h3 className="main__title">Your Top Tracks</h3>
             <div className="track__list">
-              {/* <TrackList tracks={this.state.allTracks} /> */}
+              <RecentTracksContainer />
               <TopTracksContainer />
             </div>
           </section>
@@ -39,10 +44,4 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    tracks: state.tracks
-  };
-};
-
-export default connect(mapStateToProps)(Profile);
+export default Profile;

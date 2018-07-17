@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import media from '../../helpers/media';
 import appHeader from '../../assets/spotify.png';
+import { Link } from 'react-router-dom';
 
 import musicIcon from '../../assets/music.svg';
 import radioIcon from '../../assets/radio.svg';
@@ -36,10 +37,17 @@ const SidebarMenuItem = styled.li`
   height: 6rem;
   font-size: 1.4rem;
   font-weight: bold;
-  color: #acacac;
+  color: #2c3049;
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding-left: 1rem;
+  border-radius: 5px;
+
+  &:hover {
+    background: #363636;
+    color: #ffffff;
+  }
 `;
 
 const SidebarLogo = styled.img`
@@ -48,25 +56,45 @@ const SidebarLogo = styled.img`
   margin: 0 auto;
 `;
 
-const SidebarTitle = styled.h3``;
+const SidebarTitle = styled.h3`
+  font-size: 1.6rem;
+  color: #2c3049;
+`;
 
 const SidebarMenuItemIcon = styled.img`
   width: 28px;
   margin-right: 2rem;
 `;
 
+const SidebarMenuLink = styled(Link)`
+  text-decoration: none;
+
+  &.active {
+    color: black;
+  }
+`;
+
+const LogoLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const sidebar = props => {
   return (
     <Sidebar>
-      <SidebarLogo src={appHeader} />
+      <LogoLink to="/">
+        <SidebarLogo src={appHeader} />
+      </LogoLink>
+
       {props.children}
       <SidebarSection>
         <SidebarTitle>Browse Music</SidebarTitle>
         <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuItemIcon src={musicIcon} />
-            Profile
-          </SidebarMenuItem>
+          <SidebarMenuLink to="/profile">
+            <SidebarMenuItem>
+              <SidebarMenuItemIcon src={musicIcon} />
+              Profile
+            </SidebarMenuItem>
+          </SidebarMenuLink>
           <SidebarMenuItem>
             <SidebarMenuItemIcon src={radioIcon} />Discover
           </SidebarMenuItem>

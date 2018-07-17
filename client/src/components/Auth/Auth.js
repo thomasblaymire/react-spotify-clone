@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import LoginButton from './../components/Auth/LoginButton/LoginButton';
 import SpotifyWebApi from 'spotify-web-api-js';
-import Modal from './../components/Modal/Modal';
+import Modal from './../Modal/Modal';
+import LoginButton from './LoginButton/LoginButton';
 import styled from 'styled-components';
 
 const LoginContainer = styled.div`
@@ -25,21 +25,28 @@ const LoginDescription = styled.div`
 
 const spotifyApi = new SpotifyWebApi();
 
-class AuthContainer extends Component {
+class Auth extends Component {
   constructor(props) {
     super(props);
 
-    const params = this.getHashParams();
-    const token = params.access_token;
-
     this.state = {
-      loggedIn: token ? true : false,
+      loggedIn: this.token ? true : false,
       openModal: true
     };
+  }
+
+  componentDidMount() {
+    const params = this.getHashParams();
+    const token = params.access_token;
+    const emptyURL = '';
 
     if (token) {
       spotifyApi.setAccessToken(token);
+      localStorage.setItem('access_token', token);
       this.setState({ openModal: false });
+
+      // This hacky...fix accss token in node
+      window.history.pushState({}, document.title, '/' + emptyURL);
     }
   }
 
@@ -86,4 +93,4 @@ class AuthContainer extends Component {
   }
 }
 
-export default AuthContainer;
+export default Auth;

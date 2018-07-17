@@ -76,14 +76,8 @@ const HeaderButton = styled.button`
 const header = props => {
   return (
     <Header>
-      {/* <HeaderTitle>{props.artistName}</HeaderTitle> */}
-      <HeaderTitle>Don Diablo</HeaderTitle>
-      <HeaderDescription>
-        He and dream. One tickets a it seal parts found and big been I them.
-        Catch go the of pitifully then at the such uniforms, the not millions
-        not and salesman but the as thought, ticket that been canvassing and
-        interesting two do an shoulders mister little italic.
-      </HeaderDescription>
+      <HeaderTitle>{props.title}</HeaderTitle>
+      <HeaderDescription>{props.description}</HeaderDescription>
       <HeaderButtons>
         <HeaderButton>
           Play all <img src={playIcon} />
