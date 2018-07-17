@@ -40,15 +40,12 @@ const ArtistFollowers = styled.span`
 `;
 
 const artistList = props => {
-  console.log('HI');
-  console.log(props);
-
   let artistList;
 
   if (props.topArtists.items) {
     artistList = props.topArtists.items.splice(15).map((artist, index) => {
       return (
-        <ArtistList>
+        <ArtistList key={index}>
           <Artist>
             <ArtistImage src={artist.images[0].url} />
             <ArtistName>{artist.name}</ArtistName>

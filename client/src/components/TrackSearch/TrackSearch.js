@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import searchIcon from '../../assets/search.svg';
 
-const TrackSaarch = styled.div`
+const TrackSearch = styled.div`
   input {
     font-family: 'Nunito', sans-serif;
     border-radius: 5px;
@@ -24,14 +24,14 @@ const trackSearch = props => {
   let placeholder = 'Search for a song';
 
   return (
-    <TrackSaarch>
+    <TrackSearch>
       <input
         type="text"
         value={props.searchTerm}
         onChange={props.searchTrack}
         placeholder={placeholder}
       />
-    </TrackSaarch>
+    </TrackSearch>
   );
 };
 

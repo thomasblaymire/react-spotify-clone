@@ -18,11 +18,9 @@ export const loadTracksFailure = error => {
 };
 
 export const loadTracksData = term => {
-  console.log(term);
   return dispatch => {
     spotifyApi.searchTracks(term, (err, data) => {
       if (data) {
-        console.log(data);
         dispatch(loadTracksSuccess(data.tracks.items));
       } else {
         console.warn('Error in loadTopTracksData:', err);

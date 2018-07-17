@@ -5,7 +5,6 @@ import ArtistList from './../components/ArtistList/ArtistList';
 
 class TopArtistsContainer extends Component {
   componentDidMount() {
-    console.log('Component Mounted');
     this.props.getTopArtists();
   }
 
@@ -16,7 +15,6 @@ class TopArtistsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     topArtists: state.artists.topArtists
   };

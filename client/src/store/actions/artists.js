@@ -19,11 +19,9 @@ export const loadTopArtistsFailure = error => {
 };
 
 export const loadTopArtistsData = () => {
-  console.log('Load Top Artists Data Action HIT');
   return dispatch => {
     spotifyApi.getMyTopArtists((err, data) => {
       if (data) {
-        console.log(data);
         dispatch(loadTopArtistsSuccess(data));
       } else {
         console.warn('Error in loadTopArtistsData:', err);

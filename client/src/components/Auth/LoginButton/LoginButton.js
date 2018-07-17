@@ -45,10 +45,8 @@ const loginButton = props => {
   let loginButton;
 
   if (props.loggedIn) {
-    console.log('user logged in');
     loginButton = <p>.....</p>;
   } else {
-    console.log('login button');
     loginButton = (
       <LoginButton href="http://localhost:8888/login">
         Login to Spotify

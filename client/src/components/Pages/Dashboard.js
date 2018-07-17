@@ -7,29 +7,51 @@ import Sidebar from './../Sidebar/Sidebar';
 import AuthContainer from './../../containers/AuthContainer';
 import { connect } from 'react-redux';
 import TrackList from './../TrackList/TrackList';
+import Drawer from './../Drawer/Darwer';
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      allTracks: [],
-      artistName: ''
+      trackResults: [],
+      openDrawer: true
     };
+    this.toggleDrawer = this.toggleDrawer.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      allTracks: nextProps.tracks
+      trackResults: nextProps.tracks.tracksResults
     });
+  }
+
+  componentDidUpdate() {
+    console.log(this.state);
+  }
+
+  toggleDrawer() {
+    console.log('Toggle Drawer');
+    this.setState({ openDrawer: !this.state.openDrawer });
   }
 
   render() {
     let trackSearchResults;
 
-    if (this.props.trackResults === null) return null;
-    return (
-      <TrackList key={this.props.topTracks} tracks={this.props.topTracks} />
-    );
+    if (this.state.trackResults.length === 0) {
+      trackSearchResults = '';
+    } else {
+      trackSearchResults = (
+        <section className="main__section">
+          <h3 className="main__title">Search Results</h3>
+          <div className="track__list">
+            <TrackList
+              key={this.props.topTracks}
+              tracks={this.state.trackResults}
+            />
+          </div>
+        </section>
+      );
+    }
 
     return (
       <div>
@@ -42,12 +64,7 @@ class Dashboard extends Component {
         </Header>
 
         <main className="main">
-          <section className="main__section">
-            <h3 className="main__title">Search Results</h3>
-            <div className="track__list">
-              <TrackList tracks={this.props.trackResults} />
-            </div>
-          </section>
+          {trackSearchResults}
 
           <section className="main__section">
             <h3 className="main__title">Your Top Tracks</h3>
@@ -59,7 +76,10 @@ class Dashboard extends Component {
           <section className="main__section">
             <h3 className="main__title">Albums</h3>
             <TopArtistsContainer />
+            <button onClick={this.toggleDrawer}>Toogle </button>
           </section>
+
+          <Drawer active={this.state.openDrawer} />
         </main>
       </div>
     );
@@ -67,8 +87,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('Dash');
-  console.log(state.tracks.trackResults);
   return {
     tracks: state.tracks,
     trackResults: state.tracks.trackResults

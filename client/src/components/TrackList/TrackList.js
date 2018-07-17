@@ -46,13 +46,12 @@ const TrackList = styled.div`
 const TrackPopularity = styled.span``;
 
 const trackList = props => {
-  console.log(props);
   let tracklist;
 
   if (props.tracks) {
     tracklist = props.tracks.splice(15).map((track, index) => {
       return (
-        <TrackList>
+        <TrackList key={index}>
           <Track>
             <TrackImage src={track.album.images[0].url} />
             <TrackNumber>{index}</TrackNumber>

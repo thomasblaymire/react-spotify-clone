@@ -1,5 +1,3 @@
-// To call the value passed from Dash to API
-
 import React, { Component } from 'react';
 import TrackSearch from '../components/TrackSearch/TrackSearch';
 import { connect } from 'react-redux';
@@ -9,15 +7,16 @@ class TrackContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allTracks: []
+      allTracks: [],
+      searchTerm: ''
     };
 
     this.searchTrack = this.searchTrack.bind(this);
   }
 
   searchTrack(e) {
-    this.setState({ searchTerm: e.target.value });
     let term = this.state.searchTerm;
+    this.setState({ searchTerm: e.target.value });
 
     this.props.getTrackData(term);
   }
