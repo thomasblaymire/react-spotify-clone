@@ -76,7 +76,10 @@ class Dashboard extends Component {
             <TopArtistsContainer />
           </section>
 
-          <Drawer active={this.props.toggleDrawer} />
+          <Drawer
+            active={this.props.toggleDrawer}
+            playingTrack={this.props.playingTrack}
+          />
         </main>
       </div>
     );
@@ -87,7 +90,8 @@ const mapStateToProps = state => {
   return {
     tracks: state.tracks,
     trackResults: state.tracks.trackResults,
-    toggleDrawer: state.tracks.toggleDrawer
+    toggleDrawer: state.tracks.toggleDrawer,
+    playingTrack: state.tracks.currentlyPlaying
   };
 };
 

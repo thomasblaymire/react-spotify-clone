@@ -3,14 +3,15 @@ import SpotifyWebApi from 'spotify-web-api-js';
 
 const spotifyApi = new SpotifyWebApi();
 
-export const toggleDrawer = () => {
+export const toggleDrawer = track => {
+  console.log(track);
   return {
-    type: actionTypes.TOGGLE_DRAWER
+    type: actionTypes.TOGGLE_DRAWER,
+    track
   };
 };
 
 export const setFavouriteTrack = track => {
-  console.log(track);
   return {
     type: actionTypes.SET_FAVOURITE_TRACK,
     track

@@ -34,9 +34,11 @@ const TrackName = styled.div`
 `;
 
 const drawer = props => {
+  console.log(props.playingTrack.name);
+
   return (
     <Drawer active={props.active}>
-      <TrackName>The Ocean (feat. Shy Martin)</TrackName>
+      <TrackName>{props.playingTrack.name}</TrackName>
     </Drawer>
   );
 };

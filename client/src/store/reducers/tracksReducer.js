@@ -6,7 +6,8 @@ const initialState = {
   recentTracks: [],
   topTracks: null,
   error: false,
-  toggleDrawer: false
+  toggleDrawer: false,
+  currentlyPlaying: ''
 };
 
 const loadTracksSuccess = (state, action) => {
@@ -52,11 +53,17 @@ const loadRecentTracksFailure = state => {
 };
 
 const setFavouriteTrack = (state, action) => {
-  console.log(state);
-  console.log(action);
   return {
     ...state,
     favouriteTracks: [...state.favouriteTracks, action.track]
+  };
+};
+
+const toggleDrawer = (state, action) => {
+  return {
+    ...state,
+    toggleDrawer: true,
+    currentlyPlaying: action.track
   };
 };
 
@@ -77,10 +84,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SET_FAVOURITE_TRACK:
       return setFavouriteTrack(state, action);
     case actionTypes.TOGGLE_DRAWER:
-      return {
-        ...state,
-        toggleDrawer: true
-      };
+      return toggleDrawer(state, action);
     default:
       return state;
   }

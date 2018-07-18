@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import icons from '../../assets/icons/sprite.svg';
 
+import moment from 'moment';
+
 const Track = styled.div`
   display: flex;
   align-items: center;
@@ -32,7 +34,8 @@ const TrackName = styled.h3`
 `;
 
 const TrackAlbum = styled.span`
-  margin-left: 5rem;
+  margin-left: 4rem;
+  width: 300px;
 `;
 
 const TrackRuntime = styled.span`
@@ -66,9 +69,22 @@ const trackList = props => {
 
   if (props.tracks) {
     tracklist = props.tracks.splice(15).map((track, index) => {
+      // Take this outa here!
+      const millisecondsToMinutesSeconds = trackDuration => {
+        let duration = moment.duration(trackDuration, 'milliseconds');
+        let fromMinutes = Math.floor(duration.asMinutes());
+        let fromSeconds = Math.floor(duration.asSeconds() - fromMinutes * 60);
+
+        return Math.floor(duration.asSeconds()) >= 60
+          ? (fromMinutes <= 9 ? '0' + fromMinutes : fromMinutes) +
+              ':' +
+              (fromSeconds <= 9 ? '0' + fromSeconds : fromSeconds)
+          : '00:' + (fromSeconds <= 9 ? '0' + fromSeconds : fromSeconds);
+      };
+
       return (
         <TrackList key={index}>
-          <Track onClick={props.toggleSong}>
+          <Track onClick={() => props.toggleSong(track)}>
             <TrackImage src={track.album.images[0].url} />
             <TrackNumber>{index}</TrackNumber>
             <TrackName>{track.name}</TrackName>
@@ -84,9 +100,11 @@ const trackList = props => {
               <TrackFavouritePath d="M66.874 0A23.13 23.13 0 0 0 45 15.623a23.125 23.125 0 0 0-45 7.503c0 24.987 45 54.55 45 54.55s45-29.563 45-54.55A23.126 23.126 0 0 0 66.874 0z" />
             </TrackFavourite>
 
-            <TrackAlbum>Album Name</TrackAlbum>
-            <TrackRuntime>3:29</TrackRuntime>
-            <TrackPopularity>9</TrackPopularity>
+            <TrackAlbum>{track.album.name}</TrackAlbum>
+            <TrackRuntime>
+              {millisecondsToMinutesSeconds(track.duration_ms)}
+            </TrackRuntime>
+            <TrackPopularity>{track.popularity}</TrackPopularity>
           </Track>
         </TrackList>
       );

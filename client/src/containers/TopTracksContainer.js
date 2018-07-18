@@ -16,6 +16,10 @@ class TopTracksContainer extends Component {
     this.props.setFavouriteTrack(track);
   };
 
+  toggleSong = track => {
+    this.props.toggleSong(track);
+  };
+
   render() {
     if (this.props.topTracks === null) return null;
     return (
@@ -37,7 +41,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getTopTracks: () => dispatch(actions.loadTopTracksData()),
-    toggleSong: () => dispatch(actions.toggleDrawer()),
+    toggleSong: track => dispatch(actions.toggleDrawer(track)),
     setFavouriteTrack: track => dispatch(actions.setFavouriteTrack(track))
   };
 };
