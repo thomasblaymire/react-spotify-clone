@@ -4,7 +4,6 @@ import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
 export const toggleDrawer = track => {
-  console.log(track);
   return {
     type: actionTypes.TOGGLE_DRAWER,
     track
@@ -90,7 +89,6 @@ export const loadRecentTracksData = () => {
   return dispatch => {
     spotifyApi.getMyRecentlyPlayedTracks((err, data) => {
       if (data) {
-        console.log(data);
         dispatch(loadTopTracksSuccess(data));
       } else {
         console.warn('Error in loadRecentTrackData:', err);

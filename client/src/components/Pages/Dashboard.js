@@ -28,7 +28,6 @@ class Dashboard extends Component {
   }
 
   toggleDrawer() {
-    console.log('Toggle Drawer');
     this.setState({ openDrawer: !this.state.openDrawer });
   }
 

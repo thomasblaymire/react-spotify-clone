@@ -34,8 +34,6 @@ const TrackName = styled.div`
 `;
 
 const drawer = props => {
-  console.log(props.playingTrack.name);
-
   return (
     <Drawer active={props.active}>
       <TrackName>{props.playingTrack.name}</TrackName>
