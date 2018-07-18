@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import icons from '../../assets/icons/sprite.svg';
 
 const Track = styled.div`
   display: flex;
@@ -27,11 +28,11 @@ const TrackNumber = styled.span`
 `;
 
 const TrackName = styled.h3`
-  width: 400px;
+  width: 350px;
 `;
 
 const TrackAlbum = styled.span`
-  margin-left: 2rem;
+  margin-left: 5rem;
 `;
 
 const TrackRuntime = styled.span`
@@ -45,6 +46,21 @@ const TrackList = styled.div`
 
 const TrackPopularity = styled.span``;
 
+const TrackFavourite = styled.svg`
+  fill: red;
+  width: 30px;
+  height: 30px;
+`;
+
+const TrackFavouritePath = styled.path`
+  fill: #ababab;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    fill: #2c3049;
+  }
+`;
+
 const trackList = props => {
   let tracklist;
 
@@ -56,6 +72,17 @@ const trackList = props => {
             <TrackImage src={track.album.images[0].url} />
             <TrackNumber>{index}</TrackNumber>
             <TrackName>{track.name}</TrackName>
+
+            <TrackFavourite
+              width="25"
+              height="25"
+              viewBox="0 0 90 78"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <TrackFavouritePath d="M66.874 0A23.13 23.13 0 0 0 45 15.623a23.125 23.125 0 0 0-45 7.503c0 24.987 45 54.55 45 54.55s45-29.563 45-54.55A23.126 23.126 0 0 0 66.874 0z" />
+            </TrackFavourite>
+
             <TrackAlbum>Album Name</TrackAlbum>
             <TrackRuntime>3:29</TrackRuntime>
             <TrackPopularity>9</TrackPopularity>

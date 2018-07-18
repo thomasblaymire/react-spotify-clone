@@ -76,6 +76,7 @@ const HeaderButton = styled.button`
 const header = props => {
   return (
     <Header>
+      {/* <HeaderTitle>{props.artistName}</HeaderTitle> */}
       <HeaderTitle>{props.title}</HeaderTitle>
       <HeaderDescription>{props.description}</HeaderDescription>
       <HeaderButtons>

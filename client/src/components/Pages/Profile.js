@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
-import ProfilePageBG from '../../assets/';
+import ProfilePageBG from '../../assets/profile-bg.jpg';
 import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
 import RecentTracksContainer from './../../containers/RecentTracksContainer';
