@@ -43,7 +43,7 @@ const artistList = props => {
   let artistList;
 
   if (props.topArtists.items) {
-    artistList = props.topArtists.items.splice(15).map((artist, index) => {
+    artistList = props.topArtists.items.splice(5).map((artist, index) => {
       return (
         <ArtistList key={index}>
           <Artist>
