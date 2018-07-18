@@ -74,6 +74,7 @@ const trackList = props => {
             <TrackName>{track.name}</TrackName>
 
             <TrackFavourite
+              onClick={() => props.handleTrack(track)}
               width="25"
               height="25"
               viewBox="0 0 90 78"

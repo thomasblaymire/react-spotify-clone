@@ -9,6 +9,14 @@ export const toggleDrawer = () => {
   };
 };
 
+export const setFavouriteTrack = track => {
+  console.log(track);
+  return {
+    type: actionTypes.SET_FAVOURITE_TRACK,
+    track
+  };
+};
+
 export const loadTracksSuccess = tracksResults => {
   return {
     type: actionTypes.LOAD_TRACK_DATA_SUCCESS,

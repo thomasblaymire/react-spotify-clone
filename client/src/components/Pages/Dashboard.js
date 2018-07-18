@@ -84,7 +84,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     tracks: state.tracks,
     trackResults: state.tracks.trackResults,

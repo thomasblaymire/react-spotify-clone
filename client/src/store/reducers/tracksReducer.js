@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   tracksResults: [],
+  favouriteTracks: [],
   recentTracks: [],
   topTracks: null,
   error: false,
@@ -50,6 +51,15 @@ const loadRecentTracksFailure = state => {
   };
 };
 
+const setFavouriteTrack = (state, action) => {
+  console.log(state);
+  console.log(action);
+  return {
+    ...state,
+    favouriteTracks: [...state.favouriteTracks, action.track]
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOAD_TRACK_DATA_SUCCESS:
@@ -64,6 +74,8 @@ const reducer = (state = initialState, action) => {
       return loadRecentTracksSuccess(state, action);
     case actionTypes.LOAD_RECENT_TRACKS_DATA_FAILURE:
       return loadRecentTracksFailure(state, action);
+    case actionTypes.SET_FAVOURITE_TRACK:
+      return setFavouriteTrack(state, action);
     case actionTypes.TOGGLE_DRAWER:
       return {
         ...state,
