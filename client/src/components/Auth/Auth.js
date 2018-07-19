@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
-import Modal from './../Modal/Modal';
+import Modal from '../UI/Modal/Modal';
 import LoginButton from './LoginButton/LoginButton';
 import styled from 'styled-components';
 
@@ -46,7 +46,7 @@ class Auth extends Component {
       this.setState({ openModal: false });
 
       // This hacky...fix accss token in node
-      window.history.pushState({}, document.title, '/' + emptyURL);
+      // window.history.pushState({}, document.title, '/' + emptyURL);
     }
   }
 

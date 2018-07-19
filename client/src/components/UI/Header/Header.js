@@ -1,6 +1,6 @@
 import React from 'react';
-import playIcon from '../../assets/play.svg';
-import headerHero from '../../assets/bg.jpg';
+import playIcon from '../../../assets/play.svg';
+import headerHero from '../../../assets/bg.jpg';
 
 import styled, { css } from 'styled-components';
 

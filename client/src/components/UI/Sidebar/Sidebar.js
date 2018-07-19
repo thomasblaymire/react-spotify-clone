@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from '../../helpers/media';
-import appHeader from '../../assets/spotify.png';
+import media from '../../../helpers/media';
+import appHeader from '../../../assets/spotify.png';
 import { Link } from 'react-router-dom';
 
-import musicIcon from '../../assets/music.svg';
-import radioIcon from '../../assets/radio.svg';
-import micoIcon from '../../assets/casette.svg';
-import headphonesIcon from '../../assets/headphones.svg';
-import speakerIcon from '../../assets/volume.svg';
+import musicIcon from '../../../assets/music.svg';
+import radioIcon from '../../../assets/radio.svg';
+import micoIcon from '../../../assets/casette.svg';
+import headphonesIcon from '../../../assets/headphones.svg';
+import speakerIcon from '../../../assets/volume.svg';
 
 const Sidebar = styled.div`
   height: 100%;

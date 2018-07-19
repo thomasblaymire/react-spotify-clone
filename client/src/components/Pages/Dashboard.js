@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
+import Header from '../../components/UI/Header/Header';
+import { connect } from 'react-redux';
+
 import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
 import TopArtistsContainer from './../../containers/TopArtistsContainer';
-import Sidebar from './../Sidebar/Sidebar';
-import { connect } from 'react-redux';
+import Sidebar from '../UI/Sidebar/Sidebar';
 import TrackList from './../TrackList/TrackList';
-import Drawer from './../Drawer/Darwer';
+import Drawer from '../UI/Drawer/Darwer';
 import Auth from './../Auth/Auth';
 
 class Dashboard extends Component {
