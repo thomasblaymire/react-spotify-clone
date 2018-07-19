@@ -22,6 +22,10 @@ class Dashboard extends Component {
     this.toggleDrawer = this.toggleDrawer.bind(this);
   }
 
+  componentDidMount() {
+    console.log(this.props.tracks.favouriteTracks);
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({
       trackResults: nextProps.tracks.tracksResults
@@ -45,6 +49,7 @@ class Dashboard extends Component {
             <TrackList
               key={this.props.topTracks}
               tracks={this.state.trackResults}
+              favouriteTracks={this.props.tracks.favouriteTracks}
             />
           </div>
         </section>
@@ -91,7 +96,8 @@ const mapStateToProps = state => {
     tracks: state.tracks,
     trackResults: state.tracks.trackResults,
     toggleDrawer: state.tracks.toggleDrawer,
-    playingTrack: state.tracks.currentlyPlaying
+    playingTrack: state.tracks.currentlyPlaying,
+    favouriteTracks: state.tracks.favouriteTracks
   };
 };
 

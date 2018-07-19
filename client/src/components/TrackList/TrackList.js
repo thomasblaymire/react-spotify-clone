@@ -65,6 +65,8 @@ const TrackFavouritePath = styled.path`
 `;
 
 const trackList = props => {
+  console.log(props);
+
   let tracklist;
 
   if (props.tracks) {
@@ -82,6 +84,8 @@ const trackList = props => {
           : '00:' + (fromSeconds <= 9 ? '0' + fromSeconds : fromSeconds);
       };
 
+      console.log(props);
+
       return (
         <TrackList key={index}>
           <Track onClick={() => props.toggleSong(track)}>
@@ -94,10 +98,12 @@ const trackList = props => {
               width="25"
               height="25"
               viewBox="0 0 90 78"
-              fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <TrackFavouritePath d="M66.874 0A23.13 23.13 0 0 0 45 15.623a23.125 23.125 0 0 0-45 7.503c0 24.987 45 54.55 45 54.55s45-29.563 45-54.55A23.126 23.126 0 0 0 66.874 0z" />
+              <TrackFavouritePath
+                style={{ backgroundColor: props.heartColor }}
+                d="M66.874 0A23.13 23.13 0 0 0 45 15.623a23.125 23.125 0 0 0-45 7.503c0 24.987 45 54.55 45 54.55s45-29.563 45-54.55A23.126 23.126 0 0 0 66.874 0z"
+              />
             </TrackFavourite>
 
             <TrackAlbum>{track.album.name}</TrackAlbum>

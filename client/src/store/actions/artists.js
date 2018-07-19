@@ -4,7 +4,6 @@ import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
 export const loadTopArtistsSuccess = topArtists => {
-  console.log(topArtists);
   return {
     type: actionTypes.LOAD_TOP_ARTISTS_DATA_SUCCESS,
     topArtists: topArtists

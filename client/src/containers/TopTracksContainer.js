@@ -6,6 +6,10 @@ import TrackList from './../components/TrackList/TrackList';
 class TopTracksContainer extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      heartColor: 'tomato'
+    };
   }
 
   componentDidMount() {
@@ -14,6 +18,7 @@ class TopTracksContainer extends Component {
 
   setFavouriteTrack = track => {
     this.props.setFavouriteTrack(track);
+    this.setState({ heartColor: 'red' });
   };
 
   toggleSong = track => {
@@ -27,6 +32,7 @@ class TopTracksContainer extends Component {
         tracks={this.props.topTracks}
         toggleSong={this.props.toggleSong}
         handleTrack={this.setFavouriteTrack}
+        heartColor={this.state.heartColor}
       />
     );
   }

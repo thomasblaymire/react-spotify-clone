@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Controls from './../../Controls/Controls';
 
 const Drawer = styled.div`
   position: fixed;
@@ -20,7 +21,8 @@ const Drawer = styled.div`
   ${({ active }) =>
     active &&
     `
-    height: 70px;
+    padding: 1rem 0 1rem 0;
+    height: 80px;
     overflow-y: hidden;
     transition-property: all;
     transition-duration: 0.5s;
@@ -36,13 +38,26 @@ const TrackInfoContainer = styled.div`
 `;
 
 const TrackInfoImage = styled.img`
-  width: 15px;
-  height: 15px;
+  width: 5rem;
+  height: 5rem;
 `;
 
-const TrackInfoName = styled.span``;
+const TrackInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+`;
 
-const TrackInfoArtist = styled.span``;
+const TrackInfoName = styled.span`
+  color: white;
+  font-size: 1.6rem;
+`;
+
+const TrackInfoArtist = styled.span`
+  color: white;
+  font-size: 1.1rem;
+  padding-top: 0.5rem;
+`;
 
 const TrackName = styled.div`
   color: #ffffff;
@@ -57,16 +72,33 @@ const TrackName = styled.div`
 `;
 
 const drawer = props => {
-  console.log(props);
-
   // if (props.playingTrack.album.images[0].url !== undefined) {
   //   console.log(props.playingTrack.album.images[0].url);
   // }
 
+  let artistName;
+  let albumImage;
+
+  if (props.playingTrack.artists && props.playingTrack.album.images) {
+    artistName = props.playingTrack.artists[0].name;
+    albumImage = props.playingTrack.album.images[0].url;
+  }
+
+  console.log(props.playingTrack.artists);
+
   return (
     <Drawer active={props.active}>
-      <TrackInfoContainer>TEST</TrackInfoContainer>
-      <TrackName>{props.playingTrack.name}</TrackName>
+      <TrackInfoContainer>
+        <TrackInfoImage src={albumImage} />
+        <TrackInfo>
+          <TrackInfoName>{props.playingTrack.name}</TrackInfoName>
+          <TrackInfoArtist>{artistName}</TrackInfoArtist>
+        </TrackInfo>
+      </TrackInfoContainer>
+
+      <Controls />
+
+      {/* <TrackName>{props.playingTrack.name}</TrackName> */}
     </Drawer>
   );
 };
