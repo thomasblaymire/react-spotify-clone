@@ -25,6 +25,10 @@ class TopTracksContainer extends Component {
     this.props.toggleSong(track);
   };
 
+  triggerMenu = track => {
+    console.log('Track');
+  };
+
   render() {
     if (this.props.topTracks === null) return null;
     return (

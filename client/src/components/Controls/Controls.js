@@ -6,7 +6,6 @@ import icons from '../../assets/icons/sprite.svg';
 const Controls = styled.div`
   position: absolute;
   left: 50%;
-
   > svg {
     width: 3rem;
     color: white;

@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import icons from '../../assets/icons/sprite.svg';
 import TrackActionsContainer from '../../containers/TrackActionsContainer';
-
-import moment from 'moment';
+import millisecondsToMinutesSeconds from '../../helpers/moment';
 
 const Track = styled.div`
   display: flex;
@@ -77,19 +76,6 @@ const trackList = props => {
 
   if (props.tracks) {
     tracklist = props.tracks.splice(15).map((track, index) => {
-      // Take this outa here!
-      const millisecondsToMinutesSeconds = trackDuration => {
-        let duration = moment.duration(trackDuration, 'milliseconds');
-        let fromMinutes = Math.floor(duration.asMinutes());
-        let fromSeconds = Math.floor(duration.asSeconds() - fromMinutes * 60);
-
-        return Math.floor(duration.asSeconds()) >= 60
-          ? (fromMinutes <= 9 ? '0' + fromMinutes : fromMinutes) +
-              ':' +
-              (fromSeconds <= 9 ? '0' + fromSeconds : fromSeconds)
-          : '00:' + (fromSeconds <= 9 ? '0' + fromSeconds : fromSeconds);
-      };
-
       return (
         <TrackList key={index}>
           <Track onClick={() => props.toggleSong(track)}>
