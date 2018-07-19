@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import icons from '../../assets/icons/sprite.svg';
+import TrackActionsContainer from '../../containers/TrackActionsContainer';
 
 import moment from 'moment';
 
@@ -47,12 +48,13 @@ const TrackList = styled.div`
   margin-top: 1rem;
 `;
 
-const TrackPopularity = styled.span``;
+const TrackPopularity = styled.span`
+  width: 150px;
+`;
 
 const TrackFavourite = styled.svg`
   fill: red;
-  width: 30px;
-  height: 30px;
+  width: 2rem;
 `;
 
 const TrackFavouritePath = styled.path`
@@ -64,9 +66,13 @@ const TrackFavouritePath = styled.path`
   }
 `;
 
-const trackList = props => {
-  console.log(props);
+const ActionToggle = styled.svg`
+  fill: red;
+  width: 3rem;
+  height: 3rem;
+`;
 
+const trackList = props => {
   let tracklist;
 
   if (props.tracks) {
@@ -83,8 +89,6 @@ const trackList = props => {
               (fromSeconds <= 9 ? '0' + fromSeconds : fromSeconds)
           : '00:' + (fromSeconds <= 9 ? '0' + fromSeconds : fromSeconds);
       };
-
-      console.log(props);
 
       return (
         <TrackList key={index}>
@@ -111,6 +115,12 @@ const trackList = props => {
               {millisecondsToMinutesSeconds(track.duration_ms)}
             </TrackRuntime>
             <TrackPopularity>{track.popularity}</TrackPopularity>
+
+            <ActionToggle onClick={() => props.triggerMenu(track)}>
+              <use xlinkHref={icons + '#icon-dots'} />
+            </ActionToggle>
+
+            <TrackActionsContainer />
           </Track>
         </TrackList>
       );

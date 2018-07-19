@@ -97,8 +97,6 @@ const drawer = props => {
       </TrackInfoContainer>
 
       <Controls />
-
-      {/* <TrackName>{props.playingTrack.name}</TrackName> */}
     </Drawer>
   );
 };

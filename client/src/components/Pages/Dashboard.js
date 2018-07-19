@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/UI/Header/Header';
 import { connect } from 'react-redux';
 
+import TrackActionsContainer from './../../containers/TrackActionsContainer';
 import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
 import TopArtistsContainer from './../../containers/TopArtistsContainer';
@@ -17,13 +18,10 @@ class Dashboard extends Component {
       trackResults: [],
       title: 'Dashboard',
       description:
-        'Browse, search and stream over 1 million songs all from one place.'
+        'Browse, search and stream over 1 million songs all from one place.',
+      displayMenuActions: false
     };
     this.toggleDrawer = this.toggleDrawer.bind(this);
-  }
-
-  componentDidMount() {
-    console.log(this.props.tracks.favouriteTracks);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,6 +32,11 @@ class Dashboard extends Component {
 
   toggleDrawer() {
     this.setState({ openDrawer: !this.state.openDrawer });
+  }
+
+  triggerMenu(track) {
+    console.log('Track' + track);
+    this.setState({ displayMenuActions: true });
   }
 
   render() {
@@ -55,6 +58,16 @@ class Dashboard extends Component {
         </section>
       );
     }
+
+    // let displayMenuActions;
+
+    // if(!this.state.displayMenuActions) {
+    //   displayMenuActions = '';
+    // } else {
+    //   displayMenuActions (
+    //     <TrackActionsContainer />
+    //   );
+    // }
 
     return (
       <div>
