@@ -11,6 +11,8 @@ import TrackList from './../TrackList/TrackList';
 import Drawer from '../UI/Drawer/Darwer';
 import Auth from './../Auth/Auth';
 
+import ReactTooltip from 'react-tooltip';
+
 class Dashboard extends Component {
   constructor() {
     super();
@@ -58,16 +60,6 @@ class Dashboard extends Component {
         </section>
       );
     }
-
-    // let displayMenuActions;
-
-    // if(!this.state.displayMenuActions) {
-    //   displayMenuActions = '';
-    // } else {
-    //   displayMenuActions (
-    //     <TrackActionsContainer />
-    //   );
-    // }
 
     return (
       <div>

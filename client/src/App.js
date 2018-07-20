@@ -7,6 +7,7 @@ import { injectGlobal } from 'styled-components';
 
 import DashboardPage from './components/Pages/Dashboard';
 import ProfilePage from './components/Pages/Profile';
+import ArtistPage from './components/Pages/Artist';
 
 injectGlobal`
   *,
@@ -41,6 +42,7 @@ class App extends Component {
           <div className="App">
             <Route exact path="/" component={DashboardPage} />
             <Route exact path="/profile" component={ProfilePage} />
+            <Route exact path="/artist" component={ArtistPage} />
           </div>
         </Router>
       </Provider>

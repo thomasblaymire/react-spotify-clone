@@ -27,6 +27,8 @@ class TopTracksContainer extends Component {
 
   triggerMenu = track => {
     console.log('Track');
+    console.log(track);
+    this.props.toggleActionMenu(track);
   };
 
   render() {
@@ -37,6 +39,7 @@ class TopTracksContainer extends Component {
         toggleSong={this.props.toggleSong}
         handleTrack={this.setFavouriteTrack}
         heartColor={this.state.heartColor}
+        toggleMenu={this.triggerMenu}
       />
     );
   }
@@ -44,7 +47,8 @@ class TopTracksContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    topTracks: state.tracks.topTracks
+    topTracks: state.tracks.topTracks,
+    toggleActionMenu: state.trackActions.toggleActionMenu
   };
 };
 
@@ -52,7 +56,8 @@ const mapDispatchToProps = dispatch => {
   return {
     getTopTracks: () => dispatch(actions.loadTopTracksData()),
     toggleSong: track => dispatch(actions.toggleDrawer(track)),
-    setFavouriteTrack: track => dispatch(actions.setFavouriteTrack(track))
+    setFavouriteTrack: track => dispatch(actions.setFavouriteTrack(track)),
+    toggleActionMenu: track => dispatch(actions.toggleActionMenu(track))
   };
 };
 

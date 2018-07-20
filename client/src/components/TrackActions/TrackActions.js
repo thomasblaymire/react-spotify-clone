@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import icons from '../../assets/icons/sprite.svg';
+import { Link } from 'react-router-dom';
 
 const ToolTip = styled.div`
   padding: 1rem;
-  background: #363636;
-  width: 350px;
-  display: none;
+  outline: none;
 `;
 
 const ActionItemsList = styled.ul`
@@ -17,19 +15,23 @@ const AcionItemsListItem = styled.li`
   text-decoration: none;
   font-size: 1.4rem;
   padding-bottom: 1rem;
-  margin-left: 1rem;
   color: #ffffff;
+  cursor: pointer;
 
   &:hover {
     text-decoration: underline;
   }
 `;
 
-const trackActions = () => {
+const trackActions = props => {
+  console.log(props);
+
   return (
     <ToolTip>
       <ActionItemsList>
-        <AcionItemsListItem>Add to Queue</AcionItemsListItem>
+        <AcionItemsListItem>
+          <Link to={'artist/'}>Add to Queue</Link>
+        </AcionItemsListItem>
         <AcionItemsListItem>Go To Artist</AcionItemsListItem>
         <AcionItemsListItem>Go To Album</AcionItemsListItem>
         <AcionItemsListItem>Save to Your Library</AcionItemsListItem>

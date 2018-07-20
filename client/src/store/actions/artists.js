@@ -29,3 +29,30 @@ export const loadTopArtistsData = () => {
     });
   };
 };
+
+export const loadArtistSuccess = artist => {
+  return {
+    type: actionTypes.LOAD_ARTIST_DATA_SUCCESS,
+    artist: artist
+  };
+};
+
+export const loadArtistFailure = error => {
+  return {
+    type: actionTypes.LOAD_ARTIST_DATA_FAIL,
+    error
+  };
+};
+
+export const loadArtistData = term => {
+  return dispatch => {
+    spotifyApi.getArtist(term, (err, data) => {
+      if (data) {
+        dispatch(loadArtistSuccess(data));
+      } else {
+        console.warn('Error in loadTopArtistsData:', err);
+        dispatch(loadArtistFailure(err));
+      }
+    });
+  };
+};

@@ -5,4 +5,5 @@ export {
   setFavouriteTrack
 } from './tracks';
 export { toggleDrawer } from './tracks';
-export { loadTopArtistsData } from './artists';
+export { loadTopArtistsData, loadArtistData } from './artists';
+export { toggleActionMenu } from './trackActions';

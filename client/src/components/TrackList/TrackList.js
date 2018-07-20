@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import icons from '../../assets/icons/sprite.svg';
-import TrackActionsContainer from '../../containers/TrackActionsContainer';
 import millisecondsToMinutesSeconds from '../../helpers/moment';
+import TrackActionsContainer from './../../containers/TrackActionsContainer';
+import ReactTooltip from 'react-tooltip';
+import NowPlayingSpinner from './../UI/NowPlayingSpinner/NowPlayingSpinner';
 
 const Track = styled.div`
   display: flex;
@@ -48,12 +50,13 @@ const TrackList = styled.div`
 `;
 
 const TrackPopularity = styled.span`
-  width: 150px;
+  width: 100px;
 `;
 
 const TrackFavourite = styled.svg`
   fill: red;
   width: 2rem;
+  height: 2rem;
 `;
 
 const TrackFavouritePath = styled.path`
@@ -69,10 +72,18 @@ const ActionToggle = styled.svg`
   fill: red;
   width: 3rem;
   height: 3rem;
+  margin-right: 10px;
 `;
 
 const trackList = props => {
   let tracklist;
+  let playingSpinner;
+
+  console.log(props);
+
+  if (props.toggleMenu) {
+    playingSpinner = <NowPlayingSpinner />;
+  }
 
   if (props.tracks) {
     tracklist = props.tracks.splice(15).map((track, index) => {
@@ -85,15 +96,9 @@ const trackList = props => {
 
             <TrackFavourite
               onClick={() => props.handleTrack(track)}
-              width="25"
-              height="25"
-              viewBox="0 0 90 78"
-              xmlns="http://www.w3.org/2000/svg"
+              // style={{ fill: props.heartColor }}
             >
-              <TrackFavouritePath
-                style={{ backgroundColor: props.heartColor }}
-                d="M66.874 0A23.13 23.13 0 0 0 45 15.623a23.125 23.125 0 0 0-45 7.503c0 24.987 45 54.55 45 54.55s45-29.563 45-54.55A23.126 23.126 0 0 0 66.874 0z"
-              />
+              <use xlinkHref={icons + '#icon-heart1'} fill="red" />
             </TrackFavourite>
 
             <TrackAlbum>{track.album.name}</TrackAlbum>
@@ -102,11 +107,25 @@ const trackList = props => {
             </TrackRuntime>
             <TrackPopularity>{track.popularity}</TrackPopularity>
 
-            <ActionToggle onClick={() => props.triggerMenu(track)}>
+            <ActionToggle
+              onClick={() => props.toggleMenu(track)}
+              data-tip="custom show"
+              data-event="click"
+            >
               <use xlinkHref={icons + '#icon-dots'} />
             </ActionToggle>
 
-            <TrackActionsContainer />
+            <ReactTooltip
+              place="right"
+              type="dark"
+              effect="solid"
+              globalEventOff="click"
+              className="customeTheme"
+            >
+              <TrackActionsContainer />
+            </ReactTooltip>
+
+            {playingSpinner}
           </Track>
         </TrackList>
       );
