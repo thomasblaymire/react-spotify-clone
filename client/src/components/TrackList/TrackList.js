@@ -4,7 +4,6 @@ import icons from '../../assets/icons/sprite.svg';
 import millisecondsToMinutesSeconds from '../../helpers/moment';
 import TrackActionsContainer from './../../containers/TrackActionsContainer';
 import ReactTooltip from 'react-tooltip';
-import NowPlayingSpinner from './../UI/NowPlayingSpinner/NowPlayingSpinner';
 
 const Track = styled.div`
   display: flex;
@@ -68,11 +67,6 @@ const ActionToggle = styled.svg`
 
 const trackList = props => {
   let tracklist;
-  let playingSpinner;
-
-  if (props.toggleMenu) {
-    playingSpinner = <NowPlayingSpinner />;
-  }
 
   if (props.tracks) {
     tracklist = props.tracks.splice(15).map((track, index) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Controls from './../../Controls/Controls';
+import NowPlayingSpinner from './../NowPlayingSpinner/NowPlayingSpinner';
 
 const Drawer = styled.div`
   position: fixed;
@@ -59,6 +60,11 @@ const TrackInfoArtist = styled.span`
   padding-top: 0.5rem;
 `;
 
+const TrackPlaying = styled.span`
+  position: absolute;
+  left: 95%;
+`;
+
 const drawer = props => {
   let artistName;
   let albumImage;
@@ -78,6 +84,9 @@ const drawer = props => {
         </TrackInfo>
       </TrackInfoContainer>
       <Controls />
+      <TrackPlaying>
+        <NowPlayingSpinner />
+      </TrackPlaying>
     </Drawer>
   );
 };
