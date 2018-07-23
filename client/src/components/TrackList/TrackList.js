@@ -59,15 +59,6 @@ const TrackFavourite = styled.svg`
   height: 2rem;
 `;
 
-const TrackFavouritePath = styled.path`
-  fill: #ababab;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    fill: #2c3049;
-  }
-`;
-
 const ActionToggle = styled.svg`
   fill: red;
   width: 3rem;
@@ -78,8 +69,6 @@ const ActionToggle = styled.svg`
 const trackList = props => {
   let tracklist;
   let playingSpinner;
-
-  console.log(props);
 
   if (props.toggleMenu) {
     playingSpinner = <NowPlayingSpinner />;
@@ -124,8 +113,6 @@ const trackList = props => {
             >
               <TrackActionsContainer />
             </ReactTooltip>
-
-            {playingSpinner}
           </Track>
         </TrackList>
       );

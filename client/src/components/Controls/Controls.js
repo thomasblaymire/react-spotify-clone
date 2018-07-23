@@ -17,8 +17,6 @@ const Controls = styled.div`
 
 const PlayButton = styled.svg``;
 
-const PauseButton = styled.svg``;
-
 const FFButton = styled.svg``;
 
 const RWButton = styled.svg``;

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from '../../../helpers/media';
 import appHeader from '../../../assets/spotify.png';
 import { Link } from 'react-router-dom';
 
@@ -22,6 +21,10 @@ const Sidebar = styled.div`
   background: #fff;
   padding-left: 3rem;
   padding-right: 3rem;
+
+  @media (min-width: 480) {
+    width: 100%;
+  }
 `;
 
 const SidebarSection = styled.div`

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/UI/Header/Header';
 import Sidebar from './../UI/Sidebar/Sidebar';
-import Auth from './../Auth/Auth';
 import TrackSearchContainer from '../../containers/TrackSearchContainer';
 
 import { connect } from 'react-redux';

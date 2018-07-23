@@ -76,12 +76,11 @@ const HeaderButton = styled.button`
 const header = props => {
   return (
     <Header>
-      {/* <HeaderTitle>{props.artistName}</HeaderTitle> */}
       <HeaderTitle>{props.title}</HeaderTitle>
       <HeaderDescription>{props.description}</HeaderDescription>
       <HeaderButtons>
         <HeaderButton>
-          Play all <img src={playIcon} />
+          Play all <img alt="Play All Songs" src={playIcon} />
         </HeaderButton>
         <HeaderButton secondary>Mix</HeaderButton>
       </HeaderButtons>

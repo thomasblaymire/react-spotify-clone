@@ -59,23 +59,7 @@ const TrackInfoArtist = styled.span`
   padding-top: 0.5rem;
 `;
 
-const TrackName = styled.div`
-  color: #ffffff;
-  font-size: 1.8rem;
-
-  display: flex;
-  justify-content: center;
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-`;
-
 const drawer = props => {
-  // if (props.playingTrack.album.images[0].url !== undefined) {
-  //   console.log(props.playingTrack.album.images[0].url);
-  // }
-
   let artistName;
   let albumImage;
 
@@ -83,8 +67,6 @@ const drawer = props => {
     artistName = props.playingTrack.artists[0].name;
     albumImage = props.playingTrack.album.images[0].url;
   }
-
-  console.log(props.playingTrack.artists);
 
   return (
     <Drawer active={props.active}>
@@ -95,7 +77,6 @@ const drawer = props => {
           <TrackInfoArtist>{artistName}</TrackInfoArtist>
         </TrackInfo>
       </TrackInfoContainer>
-
       <Controls />
     </Drawer>
   );

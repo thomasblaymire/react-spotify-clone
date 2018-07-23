@@ -37,7 +37,6 @@ class Dashboard extends Component {
   }
 
   triggerMenu(track) {
-    console.log('Track' + track);
     this.setState({ displayMenuActions: true });
   }
 

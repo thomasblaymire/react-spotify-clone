@@ -1,34 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/index';
+import PlayList from './../components/PlaylistList/PlaylistList';
 
-class ArtistContainer extends Component {
-  componentDidMount() {
-    console.log(this.props);
-    this.props.getArtistData('slipknot');
-
-    // get id out of the url
-  }
-
+class PlayListContainer extends Component {
   render() {
     console.log(this.props.artist);
-    return <div>ARTIST</div>;
+    return <PlayList />;
   }
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    artist: state.artist
+    playlists: state.playlists.playlists
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getArtistData: term => dispatch(actions.loadArtistData(term))
+    loadUserPlaylits: () => dispatch(actions.loadUserPlaylistData())
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ArtistContainer);
+)(PlayListContainer);

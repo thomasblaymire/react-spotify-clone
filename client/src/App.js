@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import { injectGlobal } from 'styled-components';
-
+import 'normalize.css/normalize.css';
 import DashboardPage from './components/Pages/Dashboard';
 import ProfilePage from './components/Pages/Profile';
 import ArtistPage from './components/Pages/Artist';

@@ -38,14 +38,14 @@ class Auth extends Component {
   componentDidMount() {
     const params = this.getHashParams();
     const token = params.access_token;
-    const emptyURL = '';
+    // const emptyURL = '';
 
     if (token) {
       spotifyApi.setAccessToken(token);
       localStorage.setItem('access_token', token);
       this.setState({ openModal: false });
 
-      // This hacky...fix accss token in node
+      // This hacky...fix access token in node
       // window.history.pushState({}, document.title, '/' + emptyURL);
     }
   }

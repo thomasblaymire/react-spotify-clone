@@ -4,6 +4,8 @@ import ProfilePageBG from '../../assets/profile-bg.jpg';
 import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
 import RecentTracksContainer from './../../containers/RecentTracksContainer';
+import PlayListContainer from '../../containers/PlayListContainer';
+
 import Sidebar from '../UI/Sidebar/Sidebar';
 
 class Profile extends Component {
@@ -37,6 +39,11 @@ class Profile extends Component {
               <RecentTracksContainer />
               <TopTracksContainer />
             </div>
+          </section>
+
+          <section className="main__section">
+            <h3 className="main__title">Your Playlists</h3>
+            <PlayListContainer />
           </section>
         </main>
       </div>

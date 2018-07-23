@@ -1,5 +1,4 @@
 import React from 'react';
-import profileIcon from '../../../assets/login.svg';
 import styled from 'styled-components';
 // import axios from 'axios';
 
