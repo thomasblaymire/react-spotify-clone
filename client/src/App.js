@@ -8,7 +8,6 @@ import 'normalize.css/normalize.css';
 import DashboardPage from './components/Pages/Dashboard';
 import ProfilePage from './components/Pages/Profile';
 import ArtistPage from './components/Pages/Artist';
-import styled from 'styled-components';
 
 injectGlobal`
   *,

@@ -55,8 +55,7 @@ const TrackAlbum = styled.span`
 `;
 
 const TrackRuntime = styled.span`
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin: 0 5rem 0 5rem;
   display: none;
   @media (min-width: 480px) {
     display: block;
@@ -109,10 +108,7 @@ const trackList = props => {
             <TrackNumber>{index}</TrackNumber>
             <TrackName>{track.name}</TrackName>
 
-            <TrackFavourite
-              onClick={() => props.handleTrack(track)}
-              // style={{ fill: props.heartColor }}
-            >
+            <TrackFavourite onClick={() => props.handleTrack(track)}>
               <use xlinkHref={icons + '#icon-heart1'} fill="red" />
             </TrackFavourite>
 

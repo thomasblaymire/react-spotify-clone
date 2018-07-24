@@ -10,7 +10,7 @@ const Backdrop = styled.div`
   top: 0;
 
   background-color: ${props =>
-    props.primary == true ? 'red' : 'rgba(0, 0, 0, 0.5)'};
+    props.primary === true ? 'red' : 'rgba(0, 0, 0, 0.5)'};
 `;
 
 const backdrop = props => {

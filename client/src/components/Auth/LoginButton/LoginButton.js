@@ -14,10 +14,11 @@ const LoginButton = styled.a`
   border-radius: 5px;
   color: #ffffff;
   cursor: pointer;
-  display: flex;
-  align-items: center;
   transition: all 0.4s ease-in-out;
   text-decoration: none;
+
+  display: flex;
+  align-items: center;
 
   &:hover {
     opacity: 0.4;
@@ -26,21 +27,10 @@ const LoginButton = styled.a`
 `;
 
 const loginButton = props => {
-  // requestAccess = () => {
-  //   axios
-  //     .get('http://localhost:8888/login')
-  //     .then(response => {
-  //       console.log(response);
-  //     })
-  //     .catch(error => {
-  //       console.log(error + 'Error');
-  //     });
-  // };
-
   let loginButton;
 
   if (props.loggedIn) {
-    loginButton = <p>.....</p>;
+    loginButton = null;
   } else {
     loginButton = (
       <LoginButton href="http://localhost:8888/login">

@@ -9,19 +9,13 @@ const Header = styled.div`
   background-image: url(${headerHero});
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   font-family: 'Nunito', sans-serif;
-  padding-left: 10rem;
-
-  padding-left: 1rem;
-  padding-right: 0;
+  padding-left: 10rem 0rem 1rem 1rem;
 
   @media (min-width: 480px) {
-    padding-right: 10rem;
-    padding-bottom: 2rem;
-    padding-left: 10rem;
+    padding: 0rem 10rem 2rem 10rem;
   }
 `;
 
