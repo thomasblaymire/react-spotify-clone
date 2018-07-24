@@ -17,6 +17,7 @@ const TrackSearch = styled.div`
     background-position: right;
     background-size: 2rem;
     background-position-x: 95%;
+    font-size: 1.4rem;
   }
 `;
 

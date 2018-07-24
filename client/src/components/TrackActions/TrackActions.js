@@ -14,7 +14,7 @@ const ActionItemsList = styled.ul`
 const AcionItemsListItem = styled.li`
   text-decoration: none;
   font-size: 1.4rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   color: #ffffff;
   cursor: pointer;
 
@@ -30,7 +30,12 @@ const trackActions = props => {
     <ToolTip>
       <ActionItemsList>
         <AcionItemsListItem>
-          <Link to={'artist/'}>Add to Queue</Link>
+          <Link
+            to={'artist/'}
+            style={{ textDecoration: 'none', color: 'white' }}
+          >
+            Add to Queue
+          </Link>
         </AcionItemsListItem>
         <AcionItemsListItem>Go To Artist</AcionItemsListItem>
         <AcionItemsListItem>Go To Album</AcionItemsListItem>

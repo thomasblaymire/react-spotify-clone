@@ -21,18 +21,11 @@ class TopTracksContainer extends Component {
     this.setState({ heartColor: 'red' });
   };
 
-  toggleSong = track => {
-    this.props.toggleSong(track);
-  };
-
   triggerMenu = track => {
-    console.log('Track');
-    console.log(track);
     this.props.toggleActionMenu(track);
   };
 
   render() {
-    if (this.props.topTracks === null) return null;
     return (
       <TrackList
         tracks={this.props.topTracks}

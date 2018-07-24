@@ -24,10 +24,20 @@ const Track = styled.div`
 const TrackImage = styled.img`
   width: 35px;
   border-radius: 5px;
+  margin-right: 1.5rem;
+
+  @media (min-width: 480px) {
+    margin-right: 0;
+  }
 `;
 
 const TrackNumber = styled.span`
   margin: 0 2rem 0 2rem;
+  display: none;
+
+  @media (min-width: 480px) {
+    display: block;
+  }
 `;
 
 const TrackName = styled.h3`
@@ -37,11 +47,20 @@ const TrackName = styled.h3`
 const TrackAlbum = styled.span`
   margin-left: 4rem;
   width: 300px;
+  display: none;
+
+  @media (min-width: 480px) {
+    display: block;
+  }
 `;
 
 const TrackRuntime = styled.span`
   margin-left: 5rem;
   margin-right: 5rem;
+  display: none;
+  @media (min-width: 480px) {
+    display: block;
+  }
 `;
 
 const TrackList = styled.div`
@@ -50,12 +69,21 @@ const TrackList = styled.div`
 
 const TrackPopularity = styled.span`
   width: 100px;
+  display: none;
+
+  @media (min-width: 480px) {
+    display: block;
+  }
 `;
 
 const TrackFavourite = styled.svg`
   fill: red;
   width: 2rem;
   height: 2rem;
+  display: none;
+  @media (min-width: 480px) {
+    display: block;
+  }
 `;
 
 const ActionToggle = styled.svg`
@@ -63,6 +91,10 @@ const ActionToggle = styled.svg`
   width: 3rem;
   height: 3rem;
   margin-right: 10px;
+`;
+
+const TrackError = styled.span`
+  font-size: 1.5rem;
 `;
 
 const trackList = props => {
@@ -112,7 +144,11 @@ const trackList = props => {
       );
     });
   } else {
-    tracklist = <div>There are no tracks available right now.</div>;
+    tracklist = (
+      <TrackError>
+        There are no tracks available right now. Please sign in.
+      </TrackError>
+    );
   }
 
   return tracklist;

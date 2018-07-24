@@ -4,6 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
 export const toggleDrawer = track => {
+  console.log('toggleDrawAction');
   return {
     type: actionTypes.TOGGLE_DRAWER,
     track

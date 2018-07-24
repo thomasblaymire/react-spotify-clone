@@ -8,6 +8,7 @@ import 'normalize.css/normalize.css';
 import DashboardPage from './components/Pages/Dashboard';
 import ProfilePage from './components/Pages/Profile';
 import ArtistPage from './components/Pages/Artist';
+import styled from 'styled-components';
 
 injectGlobal`
   *,
@@ -28,9 +29,14 @@ injectGlobal`
   }
 
   .App {
-    margin-left: 300px;
+    margin-left: 0px;
     background: #f6f7fb;
     height: 1000vh;
+
+  @media (min-width: 480px) {
+    margin-left: 300px;
+  }
+
   }
 `;
 

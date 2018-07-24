@@ -68,6 +68,9 @@ const TrackPlaying = styled.span`
 const drawer = props => {
   let artistName;
   let albumImage;
+  const drawerActive = props.active;
+
+  console.log(props.active);
 
   if (props.playingTrack.artists && props.playingTrack.album.images) {
     artistName = props.playingTrack.artists[0].name;
@@ -75,19 +78,25 @@ const drawer = props => {
   }
 
   return (
-    <Drawer active={props.active}>
-      <TrackInfoContainer>
-        <TrackInfoImage src={albumImage} />
-        <TrackInfo>
-          <TrackInfoName>{props.playingTrack.name}</TrackInfoName>
-          <TrackInfoArtist>{artistName}</TrackInfoArtist>
-        </TrackInfo>
-      </TrackInfoContainer>
-      <Controls />
-      <TrackPlaying>
-        <NowPlayingSpinner />
-      </TrackPlaying>
-    </Drawer>
+    <div>
+      {drawerActive ? (
+        <Drawer active={props.active}>
+          <TrackInfoContainer>
+            <TrackInfoImage src={albumImage} />
+            <TrackInfo>
+              <TrackInfoName>{props.playingTrack.name}</TrackInfoName>
+              <TrackInfoArtist>{artistName}</TrackInfoArtist>
+            </TrackInfo>
+          </TrackInfoContainer>
+          <Controls />
+          <TrackPlaying>
+            <NowPlayingSpinner />
+          </TrackPlaying>
+        </Drawer>
+      ) : (
+        <div />
+      )}
+    </div>
   );
 };
 

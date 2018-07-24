@@ -15,15 +15,16 @@ const Sidebar = styled.div`
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
+
+  left: -30rem;
   overflow-x: hidden;
   padding-top: 3rem;
   background: #fff;
   padding-left: 3rem;
   padding-right: 3rem;
 
-  @media (min-width: 480) {
-    width: 100%;
+  @media (min-width: 480px) {
+    left: 0;
   }
 `;
 

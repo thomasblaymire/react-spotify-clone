@@ -1,7 +1,6 @@
 import React from 'react';
 import playIcon from '../../../assets/play.svg';
 import headerHero from '../../../assets/bg.jpg';
-
 import styled, { css } from 'styled-components';
 
 const Header = styled.div`
@@ -15,8 +14,15 @@ const Header = styled.div`
   flex-direction: column;
   font-family: 'Nunito', sans-serif;
   padding-left: 10rem;
-  padding-right: 10rem;
-  padding-bottom: 2rem;
+
+  padding-left: 1rem;
+  padding-right: 0;
+
+  @media (min-width: 480px) {
+    padding-right: 10rem;
+    padding-bottom: 2rem;
+    padding-left: 10rem;
+  }
 `;
 
 const HeaderTitle = styled.h3`
@@ -28,7 +34,8 @@ const HeaderTitle = styled.h3`
 const HeaderDescription = styled.p`
   color: #eaf6ff;
   font-size: 2rem;
-  width: 50%;
+  padding-top: 2rem;
+  width: 100%;
 `;
 
 const HeaderButtons = styled.div`

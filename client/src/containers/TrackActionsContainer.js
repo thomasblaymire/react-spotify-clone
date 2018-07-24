@@ -9,6 +9,11 @@ class TrackActionsContainer extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    console.log(this.props);
+    console.log(this.props.currentTrack);
+  }
+
   render() {
     return <TrackActions currentTrack={this.props.currentTrack} />;
   }

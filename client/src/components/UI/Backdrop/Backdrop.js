@@ -8,10 +8,13 @@ const Backdrop = styled.div`
   z-index: 100;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+
+  background-color: ${props =>
+    props.primary == true ? 'red' : 'rgba(0, 0, 0, 0.5)'};
 `;
 
 const backdrop = props => {
+  console.log(props);
   return props.show ? (
     <Backdrop onClick={props.clicked} onKeyPress={props.clicked} />
   ) : null;

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../../components/UI/Header/Header';
 import { connect } from 'react-redux';
 
-import TrackActionsContainer from './../../containers/TrackActionsContainer';
 import TrackSearchContainer from './../../containers/TrackSearchContainer';
 import TopTracksContainer from './../../containers/TopTracksContainer';
 import TopArtistsContainer from './../../containers/TopArtistsContainer';
@@ -10,8 +9,7 @@ import Sidebar from '../UI/Sidebar/Sidebar';
 import TrackList from './../TrackList/TrackList';
 import Drawer from '../UI/Drawer/Darwer';
 import Auth from './../Auth/Auth';
-
-import ReactTooltip from 'react-tooltip';
+import * as actions from '../../store/actions/index';
 
 class Dashboard extends Component {
   constructor() {
@@ -23,21 +21,12 @@ class Dashboard extends Component {
         'Browse, search and stream over 1 million songs all from one place.',
       displayMenuActions: false
     };
-    this.toggleDrawer = this.toggleDrawer.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       trackResults: nextProps.tracks.tracksResults
     });
-  }
-
-  toggleDrawer() {
-    this.setState({ openDrawer: !this.state.openDrawer });
-  }
-
-  triggerMenu(track) {
-    this.setState({ displayMenuActions: true });
   }
 
   render() {
@@ -53,6 +42,7 @@ class Dashboard extends Component {
             <TrackList
               key={this.props.topTracks}
               tracks={this.state.trackResults}
+              toggleSong={this.props.toggleSong}
               favouriteTracks={this.props.tracks.favouriteTracks}
             />
           </div>
@@ -105,4 +95,13 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleSong: track => dispatch(actions.toggleDrawer(track))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Dashboard);

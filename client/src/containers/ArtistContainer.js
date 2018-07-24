@@ -5,7 +5,7 @@ import * as actions from '../store/actions/index';
 class ArtistContainer extends Component {
   componentDidMount() {
     console.log(this.props);
-    this.props.getArtistData('slipknot');
+    this.props.getArtistData('1l2ekx5skC4gJH8djERwh1');
 
     // get id out of the url
   }

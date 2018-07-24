@@ -1,8 +1,15 @@
 .main {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  padding-left: 10rem;
-  padding-right: 10rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
 }
 
 .main__section {
@@ -18,6 +25,10 @@
 .__react_component_tooltip {
   pointer-events: auto;
   padding: none;
+}
+
+.__react_component_tooltip.show {
+  opacity: 1;
 }
 
 .spinner {
