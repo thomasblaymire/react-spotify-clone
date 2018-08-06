@@ -70,7 +70,7 @@ const drawer = props => {
   let albumImage;
   const drawerActive = props.active;
 
-  console.log(props.active);
+  console.log(props);
 
   if (props.playingTrack.artists && props.playingTrack.album.images) {
     artistName = props.playingTrack.artists[0].name;

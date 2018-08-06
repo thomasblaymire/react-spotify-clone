@@ -6,5 +6,5 @@ export {
 } from './tracks';
 export { toggleDrawer } from './tracks';
 export { loadTopArtistsData, loadArtistData } from './artists';
-export { loadUserPlaylistData } from './artists';
+export { loadUserPlaylistsData } from './playlist';
 export { toggleActionMenu } from './trackActions';

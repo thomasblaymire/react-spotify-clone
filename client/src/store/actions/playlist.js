@@ -3,21 +3,22 @@ import SpotifyWebApi from 'spotify-web-api-js';
 
 const spotifyApi = new SpotifyWebApi();
 
-export const loadUserPlaylistSuccess = artist => {
+export const loadUserPlaylistSuccess = playlists => {
   return {
     type: actionTypes.LOAD_USER_PLAYLIST_DATA_SUCCESS,
-    artist: artist
+    playlists: playlists
   };
 };
 
 export const loadUserPlaylistFailure = error => {
   return {
-    type: actionTypes.LOAD_USER_PLAYLIST_DATA_FAIL,
+    type: actionTypes.LOAD_USER_PLAYLIST_DATA_FAILURE,
     error
   };
 };
 
-export const loadUserPlaylistData = term => {
+export const loadUserPlaylistsData = () => {
+  console.log('HIT');
   return dispatch => {
     spotifyApi.getUserPlaylists((err, data) => {
       if (data) {

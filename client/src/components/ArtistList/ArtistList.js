@@ -6,10 +6,6 @@ const ArtistList = styled.div`
 `;
 
 const Artist = styled.div`
-  /* flex-direction: column;
-  align-items: center;
-  justify-content: center; */
-
   width: 230px;
   background: #ffffff;
   border: solid 20px #ffffff;

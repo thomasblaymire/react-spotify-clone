@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 import { injectGlobal } from 'styled-components';
@@ -8,6 +8,7 @@ import 'normalize.css/normalize.css';
 import DashboardPage from './components/Pages/Dashboard';
 import ProfilePage from './components/Pages/Profile';
 import ArtistPage from './components/Pages/Artist';
+import NoMatchPage from './components/Pages/NoMatch';
 
 injectGlobal`
   *,
@@ -45,9 +46,12 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Route exact path="/" component={DashboardPage} />
-            <Route exact path="/profile" component={ProfilePage} />
-            <Route exact path="/artist" component={ArtistPage} />
+            <Switch>
+              <Route exact path="/" component={DashboardPage} />
+              <Route exact path="/profile" component={ProfilePage} />
+              <Route exact path="/artist" component={ArtistPage} />
+              <Route component={NoMatchPage} />
+            </Switch>
           </div>
         </Router>
       </Provider>

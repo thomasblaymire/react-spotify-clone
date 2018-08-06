@@ -24,8 +24,6 @@ const AcionItemsListItem = styled.li`
 `;
 
 const trackActions = props => {
-  console.log(props);
-
   return (
     <ToolTip>
       <ActionItemsList>

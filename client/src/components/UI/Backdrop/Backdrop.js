@@ -14,10 +14,7 @@ const Backdrop = styled.div`
 `;
 
 const backdrop = props => {
-  console.log(props);
-  return props.show ? (
-    <Backdrop onClick={props.clicked} onKeyPress={props.clicked} />
-  ) : null;
+  return props.show ? <Backdrop /> : null;
 };
 
 export default backdrop;

@@ -5,21 +5,25 @@ import PlayList from './../components/PlaylistList/PlaylistList';
 
 class PlayListContainer extends Component {
   render() {
-    console.log(this.props.artist);
-    return <PlayList />;
+    console.log(this.props);
+    return <PlayList playlists={this.props.playlists} />;
+  }
+
+  componentDidMount() {
+    this.props.loadUserPlaylits();
   }
 }
 
 const mapStateToProps = state => {
   console.log(state);
   return {
-    playlists: state.playlists.playlists
+    playlists: state.playlists.playlists.items
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadUserPlaylits: () => dispatch(actions.loadUserPlaylistData())
+    loadUserPlaylits: () => dispatch(actions.loadUserPlaylistsData())
   };
 };
 
