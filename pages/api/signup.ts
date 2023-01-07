@@ -31,7 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       password: user.id,
       time: Date.now(),
     },
-    'hello',
+    process.env.JWT_SECRET,
     { expiresIn: '8h' }
   )
 
