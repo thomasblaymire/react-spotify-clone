@@ -1,4 +1,13 @@
-import { Box, Flex, Input, Button } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Input,
+  Button,
+  InputGroup,
+  InputLeftElement,
+  Stack,
+} from '@chakra-ui/react'
+import { MdEmail, MdPassword } from 'react-icons/md'
 import { useRouter } from 'next/router'
 import { FC, useState } from 'react'
 import NextImage from 'next/image'
@@ -30,18 +39,31 @@ const AuthForm: FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => {
         <NextImage src="/logo.svg" height={60} width={120} />
       </Flex>
       <Flex justify="center" align="center" height="calc(100vh - 100px)">
-        <Box padding="50px" bg="gray.900" borderRadius="6px">
+        <Box padding="50px" bg="gray.900" borderRadius="6px" width="30%">
           <form onSubmit={handleSubmit}>
-            <Input
-              placeholder="email"
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              placeholder="password"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <Stack paddingBottom="25px">
+              <InputGroup marginBottom="15px">
+                <InputLeftElement pointerEvents="none">
+                  <MdEmail color="gray.300" />{' '}
+                </InputLeftElement>
+                <Input
+                  placeholder="Email"
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </InputGroup>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none">
+                  <MdPassword color="gray.300" />
+                </InputLeftElement>
+                <Input
+                  placeholder="Password"
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </InputGroup>
+            </Stack>
+
             <Button
               type="submit"
               bg="green.500"
