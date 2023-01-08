@@ -1,19 +1,10 @@
-import GradientLayout from '../../components/gradientLayout'
-import SongTable from '../../components/songsTable'
+import GradientLayout from '../../components/gradient-layout'
+import SongTable from '../../components/songs-table'
 import { validateToken } from '../../lib/auth'
+import { colors } from '../../data/static'
 import prisma from '../../lib/prisma'
 
 const getByColor = (id) => {
-  const colors = [
-    'red',
-    'green',
-    'blue',
-    'orange',
-    'purple',
-    'gray',
-    'teal',
-    'yellow',
-  ]
   return colors[id - 1] || colors[Math.floor(Math.random() * colors.length)]
 }
 

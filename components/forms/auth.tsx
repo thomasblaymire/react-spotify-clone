@@ -11,7 +11,7 @@ import { MdEmail, MdPassword } from 'react-icons/md'
 import { useRouter } from 'next/router'
 import { FC, useState } from 'react'
 import NextImage from 'next/image'
-import { auth } from '../lib/mutations'
+import { auth } from '../../lib/mutations'
 
 const AuthForm: FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => {
   const [email, setEmail] = useState('')

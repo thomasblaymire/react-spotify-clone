@@ -9,47 +9,8 @@ import {
   LinkBox,
   LinkOverlay,
 } from '@chakra-ui/layout'
-import {
-  MdHome,
-  MdSearch,
-  MdLibraryMusic,
-  MdPlaylistAdd,
-  MdFavorite,
-} from 'react-icons/md'
 import { usePlaylist } from '../hooks/usePlaylist'
-
-const navMenu = [
-  {
-    name: 'Home',
-    icon: MdHome,
-    route: '/',
-  },
-  {
-    name: 'Search',
-    icon: MdSearch,
-    route: '/search',
-  },
-  {
-    name: 'Your Library',
-    icon: MdLibraryMusic,
-    route: '/library',
-  },
-]
-
-const musicMenu = [
-  {
-    name: 'Create Playlist',
-    icon: MdPlaylistAdd,
-    route: '/home',
-  },
-  {
-    name: 'Favourites',
-    icon: MdFavorite,
-    route: '/library',
-  },
-]
-
-// const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`)
+import { navMenu, musicMenu } from '../data/static'
 
 const Sidebar = () => {
   const { playlists } = usePlaylist()
